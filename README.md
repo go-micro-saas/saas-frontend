@@ -32,6 +32,7 @@ export default defineConfig({
 ```json
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
       "@public/*": ["public/*"],
       "@src/*": ["src/*"]
