@@ -12,7 +12,7 @@ pnpm run dev
 
 ## 配置 vite
 
-配置`vite.config.ts`: 添加 `resolve`
+配置`vite.config.ts`: 添加 `resolve` 和 `base`
 
 ```ts
 export default defineConfig({
@@ -22,12 +22,13 @@ export default defineConfig({
       '@src': '/src',
     },
   },
+  base:'./',
   plugins: [react()],
 })
 
 ```
 
-配置`tsconfig.app.json`: 添加 `compilerOptions.paths`
+配置`tsconfig.app.json`: 添加 `compilerOptions.baseUrl` 和 `compilerOptions.paths`
 
 ```json
 {

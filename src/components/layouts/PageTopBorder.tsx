@@ -1,4 +1,5 @@
-import './../../assets/layouts/css/page_top_border.css';
+// import './../../assets/layouts/css/page_top_border.css';
+import '@src/assets/layouts/css/page_top_border.css';
 
 function PageTopBorder() {
   return (
