@@ -1,6 +1,14 @@
 # saas-frontend
 
-start the project
+运行项目: node version: v22.17.0
+
+```shell
+npm install -g pnpm
+pnpm install
+pnpm run dev
+```
+
+## create project
 
 ```shell
 # react-ts

@@ -1,0 +1,20 @@
+.my-header-navbar {
+    color: #f2f2f2  !important;
+}
+.my-header-navbar-a {
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    margin: 0 3px;
+}
+.my-header-navbar-a.active {
+    background-color: #d93e39 !important;
+}
+
+.my-companies-top{
+    background: url(@src/assets/layouts/image/companies_top.png) repeat-x;
+    height: 5px;
+}
+.my-companies-bottom{
+    background: url(@src/assets/layouts/image/companies_bottom.png) repeat-x;
+    height: 5px;
+}
