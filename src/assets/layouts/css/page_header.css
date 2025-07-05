@@ -1,20 +1,62 @@
-.my-header-navbar {
-    color: #f2f2f2  !important;
-}
-.my-header-navbar-a {
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    margin: 0 3px;
-}
-.my-header-navbar-a.active {
-    background-color: #d93e39 !important;
+.my-header-navbar-container {
+    background-color: #f2f2f2 !important;
 }
 
-.my-companies-top{
-    background: url(@src/assets/layouts/image/companies_top.png) repeat-x;
-    height: 5px;
+.my-header-navbar-nav {
+    color: #737373 !important;
 }
-.my-companies-bottom{
-    background: url(@src/assets/layouts/image/companies_bottom.png) repeat-x;
-    height: 5px;
+
+.my-header-navbar-li {
+    margin: 0 6px;
+}
+
+.my-header-navbar-a {
+    border-radius: 9px;
+}
+
+.my-header-navbar-a:hover {
+    color: #d93e39;
+}
+
+.my-header-navbar-a.active {
+    border:1px solid #dadada;
+}
+
+.my-header-navbar-img-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.my-header-navbar-text-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+
+    background-color: #4a6fa5;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+}
+
+.my-header-navbar-sign-up {
+    height: 45px;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.my-header-navbar-sign-in {
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.my-header-navbar-dropdown{
+    max-width: 100%;
 }

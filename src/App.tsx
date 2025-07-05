@@ -9,9 +9,7 @@ function App() {
   return (
     <>
       <PageTopBorder/>
-      <div className={"container-fluid"}>
-        <PageHeader/>
-      </div>
+      <PageHeader/>
     </>
   )
 }

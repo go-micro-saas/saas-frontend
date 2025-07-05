@@ -1,0 +1,27 @@
+.my-companies-top {
+    background: url(../image/companies_top.png) repeat-x;
+    height: 5px;
+}
+
+.my-companies-bottom {
+    background: url(../image/companies_bottom.png) repeat-x;
+    height: 5px;
+}
+
+.my-companies-delimiter {
+    background: url(../image/companies_bottom.png) repeat-x;
+    height: 5px;
+}
+
+.my-delimited-line {
+    height: 5px;
+    background: url(../image/delimiter_lines.png) repeat-x;
+}
+
+.my-margin-x3 {
+    margin: 0 3px;
+}
+
+.my-margin-r3 {
+    margin: 0 3px 0 0;
+}
