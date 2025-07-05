@@ -5,10 +5,10 @@ import '@src/assets/layouts/css/page_footer.css';
 function PageFooter() {
   return (
     <>
-      <div className="container-fluid my-page-footer">
+      <div className="container-fluid my-page-footer-container">
         <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
           <p className="col-md-4 mb-0 text-body-secondary">
-            Copyright © 2020-2025
+            © 2020-2025
             <span className="my-margin-r3"></span>
             <a href="https://github.com/ikaiguang"
                className="text-decoration-none" target="_blank">

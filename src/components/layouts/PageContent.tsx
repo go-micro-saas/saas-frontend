@@ -4,7 +4,7 @@ import '@src/assets/layouts/css/page_content.css';
 function PageContent() {
   return (
     <>
-      <div className="container my-page-content"> </div>
+      <div className="container my-page-content-container"> </div>
     </>
   )
 }

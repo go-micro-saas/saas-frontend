@@ -34,10 +34,17 @@ function PageHeader() {
                   </a>
                 </li>
                 <li className="nav-item my-header-navbar-li">
-                  <a className="nav-link my-header-navbar-a" href="#">
+                  <a className="nav-link my-header-navbar-a disabled" href="#">
                     <i className="icon-book"></i>
                     <span className="my-margin-r3"></span>
                     Documents
+                  </a>
+                </li>
+                <li className="nav-item my-header-navbar-li">
+                  <a className="nav-link my-header-navbar-a disabled" aria-disabled="true">
+                    <i className="icon-shopping-cart"></i>
+                    <span className="my-margin-r3"></span>
+                    Pricing
                   </a>
                 </li>
                 <li className="nav-item my-header-navbar-li">
