@@ -18,12 +18,12 @@ function PageHeader() {
               <span className="fs-4">SaaS Platform</span>
             </a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    data-bs-target="#myNavbarSupportedContent" aria-controls="myNavbarSupportedContent"
                     aria-expanded="false"
                     aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <div className="collapse navbar-collapse" id="myNavbarSupportedContent">
               {/*导航栏 菜单*/}
               <ul className="nav navbar-nav justify-content-lg-center me-auto container">
                 <li className="nav-item my-header-navbar-li">

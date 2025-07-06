@@ -1,3 +1,11 @@
-.my-page-content-container{
+.my-page-content-container {
     min-height: 80vh;
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.my-carousel-container,
+.my-carousel-container .carousel-inner,
+.my-carousel-container .carousel-item {
+    /*max-height: 360px;*/
 }
