@@ -75,13 +75,26 @@ function PageHeader() {
                   <span className="">Guide</span>
                 </a>
                 <ul className="dropdown-menu my-header-navbar-dropdown">
+
+                  <li>
+                    <a className="dropdown-item text-truncate disabled" href="#">
+                      <i className="icon-user"></i>
+                      <span className="my-margin-r3"></span>
+                      成员信息
+                    </a>
+                  </li>
+
+                  <li>
+                    <hr className="dropdown-divider"/>
+                  </li>
                   <li>
                     <a className="dropdown-item text-truncate disabled" href="#">
                       <i className="icon-globe icon-spin"></i>
                       <span className="my-margin-r3"></span>
-                      个人版
+                      个人组织
                     </a>
                   </li>
+
                   <li>
                     <hr className="dropdown-divider"/>
                   </li>
@@ -90,16 +103,6 @@ function PageHeader() {
                       <i className="icon-cog icon-spin"></i>
                       <span className="my-margin-r3"></span>
                       管理组织
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider"/>
-                  </li>
-                  <li>
-                    <a className="dropdown-item text-truncate disabled" href="#">
-                      <i className="icon-user"></i>
-                      <span className="my-margin-r3"></span>
-                      个人信息
                     </a>
                   </li>
                 </ul>

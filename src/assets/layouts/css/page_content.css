@@ -4,8 +4,11 @@
     margin-bottom: 8px;
 }
 
+.my-page-workspace-container {
+    margin-top: 16px;
+}
+
 .my-carousel-container,
 .my-carousel-container .carousel-inner,
 .my-carousel-container .carousel-item {
-    /*max-height: 360px;*/
 }
