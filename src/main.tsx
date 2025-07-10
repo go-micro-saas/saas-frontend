@@ -7,8 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import 'bootstrap/dist/js/bootstrap.min.js';
 
-import router from "@src/routes/route.index.tsx";
-
+import router from "@src/routes/route.tsx";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
