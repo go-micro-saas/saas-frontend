@@ -1,5 +1,6 @@
 #my-auth-login-container {
     background-color: #2E363F !important;
+    min-height: 100vh;
 }
 
 #login-box {
