@@ -1,3 +1,4 @@
+import "@src/assets/layouts/css/page_top_border.css"
 import "@src/assets/login/css/login.css"
 import myLogo from '@src/assets/react-login.svg'
 import LoginForm from "./LoginForm.tsx"
@@ -5,7 +6,8 @@ import LoginForm from "./LoginForm.tsx"
 function Login() {
   return (
     <>
-      <div id="my-auth-login-container" className="container-fluid">
+      {/*<div className="page_top_border"></div>*/}
+      <div className="container-fluid my-auth-login-container">
         <div id="login-box" className="row">
           {/*logo*/}
           <div className="login-box-logo">
