@@ -4,7 +4,7 @@
 }
 
 #login-box {
-    width: 32%;
+    width: 36%;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden !important;
@@ -64,9 +64,15 @@
     color: #939da8;
 }
 
+@media (min-width: 1200px) {
+    #login-box {
+        width: 32%
+    }
+}
+
 @media (min-width: 1000px)and (max-width: 1200px) {
     #login-box {
-        width: 36%
+        width: 45%
     }
 }
 
@@ -76,7 +82,7 @@
     }
 
     #login-box {
-        width: 45%
+        width: 56%
     }
 }
 
@@ -86,7 +92,7 @@
     }
 
     #login-box {
-        width: 65%
+        width: 75%
     }
 }
 
@@ -98,17 +104,17 @@
     #login-box {
         width: 80%
     }
+
+    /*#login-box form label {*/
+    /*    width: 100%;*/
+    /*    min-width: 100%;*/
+    /*    max-width: 100%;*/
+    /*}*/
 }
 
 @media (max-width: 480px) {
     #logo {
         width: 50%;
-    }
-
-    #login-box form label {
-        width: 100%;
-        min-width: 100%;
-        max-width: 100%;
     }
 
     #login-box {
