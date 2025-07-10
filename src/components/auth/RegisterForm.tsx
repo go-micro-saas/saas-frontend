@@ -1,5 +1,6 @@
 import "@src/assets/login/css/login.css"
 import {useState} from "react";
+import {LinkPath} from "@src/paths/link_path.tsx";
 
 function RegisterForm() {
   // show password
@@ -54,7 +55,7 @@ function RegisterForm() {
         <div className="col-12 form-actions">
               <span className="pull-left">
                 <a type="button" className="btn btn-info"
-                href="/auth/login">&laquo; 返回登陆</a>
+                   href={LinkPath.AuthLogin}>&laquo; 返回登陆</a>
             </span>
           <span className="pull-right">
                 <button type="submit" className="btn btn-primary">注册</button>
