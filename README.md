@@ -56,3 +56,10 @@ export default defineConfig({
 # bootstrap
 pnpm install --save react-bootstrap bootstrap @popperjs/core
 ```
+
+## react router
+
+```shell
+# react router
+pnpm install react-router
+```

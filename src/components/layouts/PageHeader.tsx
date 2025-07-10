@@ -68,11 +68,11 @@ function PageHeader() {
 
                 {/* 登录 - 用户*/}
                 <a href="#"
-                   className="dropdown-toggle my-header-navbar-sign-in link-body-emphasis text-decoration-none"
+                   className="dropdown-toggle my-header-navbar-sign-in link-body-emphasis text-decoration-none text-truncate"
                    data-bs-toggle="dropdown" aria-expanded="false">
                   <img src={myAvatar} className="my-header-navbar-img-avatar" alt="Avatar"/>
                   <span className="my-margin-x3"></span>
-                  <span className="">Guide</span>
+                  <span className="text-truncate">Guide</span>
                 </a>
                 <ul className="dropdown-menu my-header-navbar-dropdown">
 
