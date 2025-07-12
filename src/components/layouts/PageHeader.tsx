@@ -2,7 +2,6 @@ import myLogo from '@src/assets/react.svg'
 import myAvatar from '@src/assets/layouts/image/ok.png'
 import '@src/assets/layouts/css/layout.css';
 import '@src/assets/layouts/css/page_header.css';
-import '@src/assets/icons/css/icon.css'
 
 function PageHeader() {
   return (
