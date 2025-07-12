@@ -1,9 +1,9 @@
 import {useState} from 'react';
 
-
 import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
+import {LinkPath} from "@src/paths/link_path.tsx";
 
 function LoginForm() {
   // show password
@@ -57,9 +57,10 @@ function LoginForm() {
           </div>
         </div>
         <div className="col-12 form-actions">
-              <span className="pull-left">
-                <button type="button" className="btn btn-info">忘记密码 ?</button>
-            </span>
+          <span className="pull-left">
+            <a type="button" className="btn btn-info"
+               href={LinkPath.AuthResetPassword}>忘记密码 ?</a>
+          </span>
           <span className="pull-right">
                 <button type="submit" className="btn btn-primary">登陆</button>
             </span>

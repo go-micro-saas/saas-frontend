@@ -2,9 +2,9 @@ import "@src/assets/layouts/css/page_top_border.css"
 import "@src/assets/login/css/login.css"
 
 import AuthLogo from "./AuthLogo.tsx"
-import RegisterForm from "./RegisterForm.tsx"
+import ResetPasswordForm from "./ResetPasswdForm.tsx"
 
-function Register() {
+function ResetPassword() {
   return (
     <>
       {/*<div className="page_top_border"></div>*/}
@@ -13,11 +13,11 @@ function Register() {
           {/*logo*/}
           <AuthLogo/>
           {/*form*/}
-          <RegisterForm/>
+          <ResetPasswordForm/>
         </div>
       </div>
     </>
   );
 }
 
-export default Register;
+export default ResetPassword;

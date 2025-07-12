@@ -1,7 +1,9 @@
 import "@src/assets/layouts/css/page_top_border.css"
 import "@src/assets/login/css/login.css"
+
 import AuthLogo from "./AuthLogo.tsx"
 import LoginForm from "./LoginForm.tsx"
+
 import {LinkPath} from "@src/paths/link_path.tsx";
 
 function Login() {

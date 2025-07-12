@@ -7,4 +7,6 @@ export const LinkPath = Object.freeze({
   // auth
   AuthLogin: "/auth/login",
   AuthSignup: "/auth/signup",
+  AuthResetPassword: "/auth/reset-password",
+  AuthForgotPassword: "/auth/forgot-password",
 })

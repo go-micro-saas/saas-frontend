@@ -1,8 +1,11 @@
+import {useState} from 'react';
+
 import "@src/assets/login/css/login.css"
-import {useState} from "react";
+import "@src/assets/layouts/css/layout.css"
+import "@src/assets/icons/css/icon.css"
 import {LinkPath} from "@src/paths/link_path.tsx";
 
-function RegisterForm() {
+function ResetPasswordForm() {
   // show password
   const [showPassword, setShowPassword] = useState(false);
   const doShowPassword = () => {
@@ -15,7 +18,7 @@ function RegisterForm() {
     <>
       <form id="login-form">
         <div className="row mb-3">
-          <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">Email:</label>
+          <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">Account:</label>
           <div className="col-sm-9">
             <input id="inputLoginAccount" type="text"
                    className="form-control"
@@ -34,22 +37,23 @@ function RegisterForm() {
           </div>
         </div>
         <div className="row mb-3">
-          <label htmlFor="inputLoginPassword2" className="col-sm-3 col-form-label">PasswdAgain:</label>
-          <div className="input-group col-sm-9 my-col-sm-9">
-            <input id="inputLoginPassword2" type={passwordType}
-                   className="form-control "
-                   placeholder="再次输入密码"/>
-            <span className="input-group-text" onClick={doShowPassword}>
-              <i className={showPasswordIcon}></i>
-            </span>
-          </div>
-        </div>
-        <div className="row mb-3">
           <label htmlFor="inputLoginCode" className="col-sm-3 col-form-label">Code:</label>
           <div className="col-sm-9">
             <input id="inputLoginCode" type="text"
                    className="form-control"
                    placeholder="验证码"/>
+          </div>
+        </div>
+        <div className="row mb-3">
+          <label htmlFor="inputLoginRemember" className="col-sm-3 col-form-label">Remember:</label>
+          <div className="col-sm-9 align-content-center">
+            <div className="form-check">
+              <input id="inputLoginRemember" type="checkbox"
+                     className="form-check-input" value=""/>
+              <label className="form-check-label" htmlFor="inputLoginRemember">
+                记住登陆
+              </label>
+            </div>
           </div>
         </div>
         <div className="col-12 form-actions">
@@ -58,12 +62,12 @@ function RegisterForm() {
                href={LinkPath.AuthLogin}>&laquo; 返回登陆</a>
           </span>
           <span className="pull-right">
-                <button type="submit" className="btn btn-primary">注册</button>
-            </span>
+            <button type="submit" className="btn btn-primary">重置密码</button>
+          </span>
         </div>
       </form>
     </>
   )
 }
 
-export default RegisterForm;
+export default ResetPasswordForm;
