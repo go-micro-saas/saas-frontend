@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 
 import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
 import {LinkPath} from "@src/global/link_path.tsx";
-import {EmailRegex, VerificationCodeRegex} from "@src/global/validate_rules.tsx";
+import {checkEmail, checkVerifyCode} from "@src/global/validate_rules.tsx";
 
 function LoginByEmailCodeForm() {
   // getVerifyCode
@@ -37,31 +37,6 @@ function LoginByEmailCodeForm() {
     // console.log("remainingSeconds: ", remainingSeconds);
   }, [remainingSeconds]);
 
-  // checkLoginAccount
-  const checkLoginAccount = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const input = event.target;
-    const value = input.value;
-    if (EmailRegex.test(value)) {
-      input.classList.remove('is-invalid');
-      input.classList.add('is-valid');
-    } else {
-      input.classList.remove('is-valid');
-      input.classList.add('is-invalid');
-    }
-  };
-  // checkVerifyCode
-  const checkVerifyCode = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const input = event.target;
-    const value = input.value;
-    if (VerificationCodeRegex.test(value)) {
-      input.classList.remove('is-invalid');
-      input.classList.add('is-valid');
-    } else {
-      input.classList.remove('is-valid');
-      input.classList.add('is-invalid');
-    }
-  };
-
   return (
     <>
       <form id="login-form">
@@ -71,7 +46,7 @@ function LoginByEmailCodeForm() {
             <input id="inputLoginAccount" type="email"
                    className="form-control"
                    placeholder="电子邮箱"
-                   required={true} onInput={checkLoginAccount}/>
+                   required={true} onInput={checkEmail}/>
           </div>
         </div>
         <div className="row mb-3">

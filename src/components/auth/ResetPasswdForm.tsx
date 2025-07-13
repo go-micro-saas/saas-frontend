@@ -4,6 +4,7 @@ import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
 import {LinkPath} from "@src/global/link_path.tsx";
+import {checkLoginAccount, checkPassword, checkVerifyCode} from "@src/global/validate_rules.tsx";
 
 function ResetPasswordForm() {
   // show password
@@ -48,18 +49,21 @@ function ResetPasswordForm() {
     <>
       <form id="login-form">
         <div className="row mb-3">
-          <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">Account:</label>
+          <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">Email:</label>
           <div className="col-sm-9">
             <input id="inputLoginAccount" type="email"
                    className="form-control"
-                   placeholder="电子邮箱"/>
+                   placeholder="电子邮箱"
+                   required={true} onInput={checkLoginAccount}/>
           </div>
         </div>
         <div className="row mb-3">
           <label htmlFor="inputLoginCode" className="col-sm-3 col-form-label">Code:</label>
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginCode" type="text"
-                   className="form-control" placeholder="验证码"/>
+                   className="form-control"
+                   placeholder="验证码"
+                   required={true} onInput={checkVerifyCode}/>
             <button className="btn btn-outline-success" type="button"
                     disabled={!canGetVerifyCode}
                     onClick={doGetVerifyCode}>
@@ -72,7 +76,8 @@ function ResetPasswordForm() {
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginPassword" type={passwordType}
                    className="form-control "
-                   placeholder="登陆密码"/>
+                   placeholder="登陆密码"
+                   required={true} onInput={checkPassword}/>
             <span className="input-group-text" onClick={doShowPassword}>
               <i className={showPasswordIcon}></i>
             </span>
@@ -83,7 +88,8 @@ function ResetPasswordForm() {
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginPassword2" type={passwordType}
                    className="form-control "
-                   placeholder="再次输入密码"/>
+                   placeholder="再次输入密码"
+                   required={true} onInput={checkPassword}/>
             <span className="input-group-text" onClick={doShowPassword}>
               <i className={showPasswordIcon}></i>
             </span>

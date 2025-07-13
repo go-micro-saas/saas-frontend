@@ -1,6 +1,7 @@
 import "@src/assets/login/css/login.css"
 import {useEffect, useState} from "react";
 import {LinkPath} from "@src/global/link_path.tsx";
+import {checkEmail, checkPassword, checkVerifyCode} from "@src/global/validate_rules.tsx";
 
 function RegisterForm() {
   // show password
@@ -49,14 +50,17 @@ function RegisterForm() {
           <div className="col-sm-9">
             <input id="inputLoginAccount" type="email"
                    className="form-control"
-                   placeholder="电子邮箱"/>
+                   placeholder="电子邮箱"
+                   required={true} onInput={checkEmail}/>
           </div>
         </div>
         <div className="row mb-3">
           <label htmlFor="inputLoginCode" className="col-sm-3 col-form-label">Code:</label>
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginCode" type="text"
-                   className="form-control" placeholder="验证码"/>
+                   className="form-control"
+                   placeholder="验证码"
+                   required={true} onInput={checkVerifyCode}/>
             <button className="btn btn-outline-success" type="button"
                     disabled={!canGetVerifyCode}
                     onClick={doGetVerifyCode}>
@@ -69,7 +73,8 @@ function RegisterForm() {
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginPassword" type={passwordType}
                    className="form-control "
-                   placeholder="登陆密码"/>
+                   placeholder="登陆密码"
+                   required={true} onInput={checkPassword}/>
             <span className="input-group-text" onClick={doShowPassword}>
               <i className={showPasswordIcon}></i>
             </span>
@@ -80,7 +85,8 @@ function RegisterForm() {
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginPassword2" type={passwordType}
                    className="form-control "
-                   placeholder="再次输入密码"/>
+                   placeholder="再次输入密码"
+                   required={true} onInput={checkPassword}/>
             <span className="input-group-text" onClick={doShowPassword}>
               <i className={showPasswordIcon}></i>
             </span>
