@@ -1,5 +1,5 @@
 import "@src/assets/login/css/login.css"
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {LinkPath} from "@src/paths/link_path.tsx";
 
 function RegisterForm() {
@@ -11,15 +11,57 @@ function RegisterForm() {
   const showPasswordIcon = showPassword ? 'icon-off' : 'icon-eye-open';
   const passwordType = showPassword ? 'text' : 'password';
 
+  // getVerifyCode
+  const [canGetVerifyCode, setCanGetVerifyCode] = useState(true);
+  const [remainingSeconds, setRemainingSeconds] = useState(0);
+  const [nextGetCodeTime, setNextGetCodeTime] = useState((new Date()).getTime());
+  const getVerifyCodeText = canGetVerifyCode ? '获取验证码' : `重新获取(${remainingSeconds}s)`;
+  const doGetVerifyCode = () => {
+    const totalSeconds = 60;
+    setCanGetVerifyCode(false);
+    setRemainingSeconds(totalSeconds);
+    setNextGetCodeTime(new Date(new Date().getTime() + totalSeconds * 1000).getTime());
+  };
+  // 计算初始剩余时间
+  useEffect(() => {
+    const calculateRemaining = () => {
+      const totalSeconds = Math.ceil((nextGetCodeTime - (new Date()).getTime()) / 1000);
+      setRemainingSeconds(Math.max(totalSeconds, 0));
+    };
+    calculateRemaining();
+    const timer = setInterval(calculateRemaining, 1000);
+    return () => clearInterval(timer);
+  }, [nextGetCodeTime]);
+  // 倒计时结束时的逻辑
+  useEffect(() => {
+    if (remainingSeconds === 0) {
+      setCanGetVerifyCode(true);
+      // console.log('倒计时结束！');
+    }
+    // console.log("remainingSeconds: ", remainingSeconds);
+  }, [remainingSeconds]);
+
   return (
     <>
       <form id="login-form">
         <div className="row mb-3">
           <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">Email:</label>
           <div className="col-sm-9">
-            <input id="inputLoginAccount" type="text"
+            <input id="inputLoginAccount" type="email"
                    className="form-control"
-                   placeholder="电子邮箱 / 手机号码"/>
+                   placeholder="电子邮箱"/>
+          </div>
+        </div>
+        <div className="row mb-3">
+          <label htmlFor="inputLoginCode" className="col-sm-3 col-form-label">Code:</label>
+          <div className="input-group col-sm-9 my-col-sm-9">
+            <input id="inputLoginCode" type="text"
+                   className="form-control" placeholder="验证码"/>
+            <button className="btn btn-outline-success" type="button"
+                    disabled={!canGetVerifyCode}
+                    onClick={doGetVerifyCode}>
+              {getVerifyCodeText}
+            </button>
           </div>
         </div>
         <div className="row mb-3">
@@ -42,14 +84,6 @@ function RegisterForm() {
             <span className="input-group-text" onClick={doShowPassword}>
               <i className={showPasswordIcon}></i>
             </span>
-          </div>
-        </div>
-        <div className="row mb-3">
-          <label htmlFor="inputLoginCode" className="col-sm-3 col-form-label">Code:</label>
-          <div className="col-sm-9">
-            <input id="inputLoginCode" type="text"
-                   className="form-control"
-                   placeholder="验证码"/>
           </div>
         </div>
         <div className="col-12 form-actions">

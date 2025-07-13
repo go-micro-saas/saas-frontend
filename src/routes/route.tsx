@@ -6,6 +6,7 @@ import Login from "@src/components/auth/Login.tsx";
 import Register from "@src/components/auth/Register.tsx";
 import ResetPassword from "@src/components/auth/ResetPasswd.tsx";
 import Error404 from "@src/components/error/Error404.tsx";
+import LoginByEmailCode from "@src/components/auth/LoginByEmailCode.tsx";
 
 const router = createBrowserRouter([
   // default
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
 
   // auth
   {path: LinkPath.AuthLogin, Component: Login},
+  {path: LinkPath.AuthLoginByEmailCode, Component: LoginByEmailCode},
   {path: LinkPath.AuthSignup, Component: Register},
   {path: LinkPath.AuthResetPassword, Component: ResetPassword},
   {path: LinkPath.AuthForgotPassword, Component: ResetPassword},

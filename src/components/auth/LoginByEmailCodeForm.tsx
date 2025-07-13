@@ -1,18 +1,40 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
 import {LinkPath} from "@src/paths/link_path.tsx";
 
-function LoginForm() {
-  // show password
-  const [showPassword, setShowPassword] = useState(false);
-  const doShowPassword = () => {
-    setShowPassword(!showPassword);
+function LoginByEmailCodeForm() {
+  // getVerifyCode
+  const [canGetVerifyCode, setCanGetVerifyCode] = useState(true);
+  const [remainingSeconds, setRemainingSeconds] = useState(0);
+  const [nextGetCodeTime, setNextGetCodeTime] = useState((new Date()).getTime());
+  const getVerifyCodeText = canGetVerifyCode ? '获取验证码' : `重新获取(${remainingSeconds}s)`;
+  const doGetVerifyCode = () => {
+    const totalSeconds = 60;
+    setCanGetVerifyCode(false);
+    setRemainingSeconds(totalSeconds);
+    setNextGetCodeTime(new Date(new Date().getTime() + totalSeconds * 1000).getTime());
   };
-  const showPasswordIcon = showPassword ? 'icon-off' : 'icon-eye-open';
-  const passwordType = showPassword ? 'text' : 'password';
+  // 计算初始剩余时间
+  useEffect(() => {
+    const calculateRemaining = () => {
+      const totalSeconds = Math.ceil((nextGetCodeTime - (new Date()).getTime()) / 1000);
+      setRemainingSeconds(Math.max(totalSeconds, 0));
+    };
+    calculateRemaining();
+    const timer = setInterval(calculateRemaining, 1000);
+    return () => clearInterval(timer);
+  }, [nextGetCodeTime]);
+  // 倒计时结束时的逻辑
+  useEffect(() => {
+    if (remainingSeconds === 0) {
+      setCanGetVerifyCode(true);
+      // console.log('倒计时结束！');
+    }
+    // console.log("remainingSeconds: ", remainingSeconds);
+  }, [remainingSeconds]);
 
   return (
     <>
@@ -29,14 +51,15 @@ function LoginForm() {
           </div>
         </div>
         <div className="row mb-3">
-          <label htmlFor="inputLoginPassword" className="col-sm-3 col-form-label">Password:</label>
+          <label htmlFor="inputLoginCode" className="col-sm-3 col-form-label">Code:</label>
           <div className="input-group col-sm-9 my-col-sm-9">
-            <input id="inputLoginPassword" type={passwordType}
-                   className="form-control "
-                   placeholder="登陆密码"/>
-            <span className="input-group-text" onClick={doShowPassword}>
-              <i className={showPasswordIcon}></i>
-            </span>
+            <input id="inputLoginCode" type="text"
+                   className="form-control" placeholder="验证码"/>
+            <button className="btn btn-outline-success" type="button"
+                    disabled={!canGetVerifyCode}
+                    onClick={doGetVerifyCode}>
+              {getVerifyCodeText}
+            </button>
           </div>
         </div>
         <div className="row mb-3">
@@ -65,4 +88,4 @@ function LoginForm() {
   )
 }
 
-export default LoginForm;
+export default LoginByEmailCodeForm;
