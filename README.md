@@ -63,3 +63,9 @@ pnpm install --save react-bootstrap bootstrap @popperjs/core
 # react router
 pnpm install react-router
 ```
+
+## zustand
+
+```shell
+pnpm install zustand
+```

@@ -41,7 +41,9 @@ function LoginByEmailCodeForm() {
     <>
       <form id="login-form">
         <div className="row mb-3">
-          <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">Email:</label>
+          <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">
+            Email:<span className="text-danger align-middle">*</span>
+          </label>
           <div className="col-sm-9">
             <input id="inputLoginAccount" type="email"
                    className="form-control"
@@ -50,7 +52,9 @@ function LoginByEmailCodeForm() {
           </div>
         </div>
         <div className="row mb-3">
-          <label htmlFor="inputLoginCode" className="col-sm-3 col-form-label">Code:</label>
+          <label htmlFor="inputLoginCode" className="col-sm-3 col-form-label">
+            Code:<span className="text-danger align-middle">*</span>
+          </label>
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginCode" type="text"
                    className="form-control"

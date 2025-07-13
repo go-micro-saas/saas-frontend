@@ -49,7 +49,9 @@ function ResetPasswordForm() {
     <>
       <form id="login-form">
         <div className="row mb-3">
-          <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">Email:</label>
+          <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">
+            Email:<span className="text-danger align-middle">*</span>
+          </label>
           <div className="col-sm-9">
             <input id="inputLoginAccount" type="email"
                    className="form-control"
@@ -58,7 +60,9 @@ function ResetPasswordForm() {
           </div>
         </div>
         <div className="row mb-3">
-          <label htmlFor="inputLoginCode" className="col-sm-3 col-form-label">Code:</label>
+          <label htmlFor="inputLoginCode" className="col-sm-3 col-form-label">
+            Code:<span className="text-danger align-middle">*</span>
+          </label>
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginCode" type="text"
                    className="form-control"
@@ -72,7 +76,9 @@ function ResetPasswordForm() {
           </div>
         </div>
         <div className="row mb-3">
-          <label htmlFor="inputLoginPassword" className="col-sm-3 col-form-label">Password:</label>
+          <label htmlFor="inputLoginPassword" className="col-sm-3 col-form-label">
+            Password:<span className="text-danger align-middle">*</span>
+          </label>
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginPassword" type={passwordType}
                    className="form-control "
@@ -84,7 +90,9 @@ function ResetPasswordForm() {
           </div>
         </div>
         <div className="row mb-3">
-          <label htmlFor="inputLoginPassword2" className="col-sm-3 col-form-label">PasswdAgain:</label>
+          <label htmlFor="inputLoginPassword2" className="col-sm-3 col-form-label">
+            PasswdAgain:<span className="text-danger align-middle">*</span>
+          </label>
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginPassword2" type={passwordType}
                    className="form-control "
@@ -93,18 +101,6 @@ function ResetPasswordForm() {
             <span className="input-group-text" onClick={doShowPassword}>
               <i className={showPasswordIcon}></i>
             </span>
-          </div>
-        </div>
-        <div className="row mb-3">
-          <label htmlFor="inputLoginRemember" className="col-sm-3 col-form-label">Remember:</label>
-          <div className="col-sm-9 align-content-center">
-            <div className="form-check">
-              <input id="inputLoginRemember" type="checkbox"
-                     className="form-check-input" value=""/>
-              <label className="form-check-label" htmlFor="inputLoginRemember">
-                记住登陆
-              </label>
-            </div>
           </div>
         </div>
         <div className="col-12 form-actions">

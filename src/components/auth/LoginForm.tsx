@@ -19,7 +19,9 @@ function LoginForm() {
     <>
       <form id="login-form">
         <div className="row mb-3">
-          <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">Account:</label>
+          <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">
+            Account:<span className="text-danger align-middle">*</span>
+          </label>
           <div className="col-sm-9">
             <input id="inputLoginAccount" type="text"
                    className="form-control"
@@ -28,7 +30,9 @@ function LoginForm() {
           </div>
         </div>
         <div className="row mb-3">
-          <label htmlFor="inputLoginPassword" className="col-sm-3 col-form-label">Password:</label>
+          <label htmlFor="inputLoginPassword" className="col-sm-3 col-form-label">
+            Password:<span className="text-danger align-middle">*</span>
+          </label>
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginPassword" type={passwordType}
                    className="form-control "

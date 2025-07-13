@@ -46,7 +46,9 @@ function RegisterForm() {
     <>
       <form id="login-form">
         <div className="row mb-3">
-          <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">Email:</label>
+          <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">
+            Email:<span className="text-danger align-middle">*</span>
+          </label>
           <div className="col-sm-9">
             <input id="inputLoginAccount" type="email"
                    className="form-control"
@@ -55,7 +57,9 @@ function RegisterForm() {
           </div>
         </div>
         <div className="row mb-3">
-          <label htmlFor="inputLoginCode" className="col-sm-3 col-form-label">Code:</label>
+          <label htmlFor="inputLoginCode" className="col-sm-3 col-form-label">
+            Code:<span className="text-danger align-middle">*</span>
+          </label>
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginCode" type="text"
                    className="form-control"
@@ -69,7 +73,9 @@ function RegisterForm() {
           </div>
         </div>
         <div className="row mb-3">
-          <label htmlFor="inputLoginPassword" className="col-sm-3 col-form-label">Password:</label>
+          <label htmlFor="inputLoginPassword" className="col-sm-3 col-form-label">
+            Password:<span className="text-danger align-middle">*</span>
+          </label>
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginPassword" type={passwordType}
                    className="form-control "
@@ -81,7 +87,9 @@ function RegisterForm() {
           </div>
         </div>
         <div className="row mb-3">
-          <label htmlFor="inputLoginPassword2" className="col-sm-3 col-form-label">PasswdAgain:</label>
+          <label htmlFor="inputLoginPassword2" className="col-sm-3 col-form-label">
+            PasswdAgain:<span className="text-danger align-middle">*</span>
+          </label>
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginPassword2" type={passwordType}
                    className="form-control "
