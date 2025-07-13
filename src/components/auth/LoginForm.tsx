@@ -4,7 +4,7 @@ import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
 import {LinkPath} from "@src/global/link_path.tsx";
-import {checkLoginAccount, checkPassword} from "@src/global/validate_rules.tsx";
+import {CheckLoginAccount, CheckPassword} from "@src/global/validate_rules.tsx";
 
 function LoginForm() {
   // show password
@@ -26,7 +26,7 @@ function LoginForm() {
             <input id="inputLoginAccount" type="text"
                    className="form-control"
                    placeholder="电子邮箱 / 手机号码"
-                   required={true} onInput={checkLoginAccount}/>
+                   required={true} onInput={CheckLoginAccount}/>
           </div>
         </div>
         <div className="row mb-3">
@@ -37,7 +37,7 @@ function LoginForm() {
             <input id="inputLoginPassword" type={passwordType}
                    className="form-control "
                    placeholder="登陆密码"
-                   required={true} onInput={checkPassword}/>
+                   required={true} onInput={CheckPassword}/>
             <span className="input-group-text" onClick={doShowPassword}>
               <i className={showPasswordIcon}></i>
             </span>

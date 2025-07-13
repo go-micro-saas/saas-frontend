@@ -4,7 +4,7 @@ import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
 import {LinkPath} from "@src/global/link_path.tsx";
-import {checkEmail, checkVerifyCode} from "@src/global/validate_rules.tsx";
+import {CheckEmail, CheckVerifyCode} from "@src/global/validate_rules.tsx";
 
 function LoginByEmailCodeForm() {
   // getVerifyCode
@@ -48,7 +48,7 @@ function LoginByEmailCodeForm() {
             <input id="inputLoginAccount" type="email"
                    className="form-control"
                    placeholder="电子邮箱"
-                   required={true} onInput={checkEmail}/>
+                   required={true} onInput={CheckEmail}/>
           </div>
         </div>
         <div className="row mb-3">
@@ -59,7 +59,7 @@ function LoginByEmailCodeForm() {
             <input id="inputLoginCode" type="text"
                    className="form-control"
                    placeholder="验证码"
-                   required={true} onInput={checkVerifyCode}/>
+                   required={true} onInput={CheckVerifyCode}/>
             <button className="btn btn-outline-success" type="button"
                     disabled={!canGetVerifyCode}
                     onClick={doGetVerifyCode}>

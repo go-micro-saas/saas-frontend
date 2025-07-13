@@ -6,8 +6,7 @@ import type {
   MyStore
 } from "@src/global/store_const.tsx";
 
-
-export const useStore = create<MyStore>()(
+export const ProjectStore = create<MyStore>()(
   persist(
     (set) => ({
       // token

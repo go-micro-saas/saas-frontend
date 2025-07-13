@@ -7,7 +7,7 @@ export const IDCardRegex = /^(\d{17}[\dX]|\d{15})$/;
 export const PostCodeRegex = /^\d{6}$/;
 export const VerificationCodeRegex = /^\d{4,6}$/;
 
-export const setInputValidateClass = (
+export const SetInputValidateClass = (
   event: React.ChangeEvent<HTMLInputElement>,
   isValid: boolean,
 ) => {
@@ -21,28 +21,28 @@ export const setInputValidateClass = (
   }
 }
 
-// checkLoginAccount
-export const checkLoginAccount = (event: React.ChangeEvent<HTMLInputElement>) => {
+// CheckLoginAccount
+export const CheckLoginAccount = (event: React.ChangeEvent<HTMLInputElement>) => {
   const value = event.target.value;
-  setInputValidateClass(event, EmailRegex.test(value) || PhoneRegex.test(value))
+  SetInputValidateClass(event, EmailRegex.test(value) || PhoneRegex.test(value))
 };
 
-// checkEmail
-export const checkEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
-  setInputValidateClass(event, EmailRegex.test(event.target.value))
+// CheckEmail
+export const CheckEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+  SetInputValidateClass(event, EmailRegex.test(event.target.value))
 };
 
-// checkPhone
-export const checkPhone = (event: React.ChangeEvent<HTMLInputElement>) => {
-  setInputValidateClass(event, PhoneRegex.test(event.target.value))
+// CheckPhone
+export const CheckPhone = (event: React.ChangeEvent<HTMLInputElement>) => {
+  SetInputValidateClass(event, PhoneRegex.test(event.target.value))
 };
 
-// checkVerifyCode
-export const checkVerifyCode = (event: React.ChangeEvent<HTMLInputElement>) => {
-  setInputValidateClass(event, VerificationCodeRegex.test(event.target.value))
+// CheckVerifyCode
+export const CheckVerifyCode = (event: React.ChangeEvent<HTMLInputElement>) => {
+  SetInputValidateClass(event, VerificationCodeRegex.test(event.target.value))
 };
 
-// checkPassword
-export const checkPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
-  setInputValidateClass(event, PasswordRegex.test(event.target.value))
+// CheckPassword
+export const CheckPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+  SetInputValidateClass(event, PasswordRegex.test(event.target.value))
 };
