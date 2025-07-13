@@ -1,5 +1,5 @@
 import {createBrowserRouter} from "react-router";
-import {LinkPath} from "@src/paths/link_path.tsx";
+import {LinkPath} from "@src/global/link_path.tsx";
 
 import Dashboard from "@src/components/dashboard/Dashboard.tsx";
 import Login from "@src/components/auth/Login.tsx";

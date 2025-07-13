@@ -45,18 +45,18 @@
     padding: 10px 0 0;
 }
 
-#login-box .form-actions.pull-left {
+#login-box .pull-left {
     float: left;
 }
 
-#login-box .form-actions .pull-right {
+#login-box .pull-right {
     float: right;
 }
 
 #login-box .to-register {
     border-top: 1px solid #3f4954;
     margin-top: 10px;
-    padding: 10px 0 0;
+    padding: 10px 0.6rem 0;
 }
 
 #login-box .normal_text a {

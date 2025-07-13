@@ -1,9 +1,10 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 
 import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
-import {LinkPath} from "@src/paths/link_path.tsx";
+import {LinkPath} from "@src/global/link_path.tsx";
+import {EmailRegex, PasswordRegex, PhoneRegex} from "@src/global/validate_rules.tsx";
 
 function LoginForm() {
   // show password
@@ -14,18 +15,41 @@ function LoginForm() {
   const showPasswordIcon = showPassword ? 'icon-off' : 'icon-eye-open';
   const passwordType = showPassword ? 'text' : 'password';
 
+  // checkLoginAccount
+  const checkLoginAccount = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const input = event.target;
+    const value = input.value;
+    if (EmailRegex.test(value) || PhoneRegex.test(value)) {
+      input.classList.remove('is-invalid');
+      input.classList.add('is-valid');
+    } else {
+      input.classList.remove('is-valid');
+      input.classList.add('is-invalid');
+    }
+  };
+  // checkLoginPassword
+  const checkLoginPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const input = event.target;
+    const value = input.value;
+    if (PasswordRegex.test(value)) {
+      input.classList.remove('is-invalid');
+      input.classList.add('is-valid');
+    } else {
+      input.classList.remove('is-valid');
+      input.classList.add('is-invalid');
+    }
+  };
+
   return (
     <>
-      {/*<div className="alert alert-info d-flex justify-content-center align-items-center fs-3">*/}
-      {/*  倒计时：{formatTime(remainingSeconds)}*/}
-      {/*</div>*/}
       <form id="login-form">
         <div className="row mb-3">
           <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">Account:</label>
           <div className="col-sm-9">
             <input id="inputLoginAccount" type="text"
                    className="form-control"
-                   placeholder="电子邮箱 / 手机号码"/>
+                   placeholder="电子邮箱 / 手机号码"
+                   required={true} onInput={checkLoginAccount}/>
           </div>
         </div>
         <div className="row mb-3">
@@ -33,7 +57,8 @@ function LoginForm() {
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginPassword" type={passwordType}
                    className="form-control "
-                   placeholder="登陆密码"/>
+                   placeholder="登陆密码"
+                   required={true} onInput={checkLoginPassword}/>
             <span className="input-group-text" onClick={doShowPassword}>
               <i className={showPasswordIcon}></i>
             </span>

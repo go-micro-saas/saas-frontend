@@ -4,7 +4,7 @@ import "@src/assets/login/css/login.css"
 import AuthLogo from "./AuthLogo.tsx"
 import LoginByEmailCodeForm from "./LoginByEmailCodeForm.tsx"
 
-import {LinkPath} from "@src/paths/link_path.tsx";
+import {LinkPath} from "@src/global/link_path.tsx";
 
 function LoginByEmailCode() {
   return (
@@ -19,10 +19,20 @@ function LoginByEmailCode() {
           {/*register*/}
           <div className="col-12 to-register">
             <p className="normal_text">
-              <a className="text-decoration-none"
-                 href={LinkPath.AuthSignup}>
-                没有账号？注册&nbsp;&raquo;
+              {/*login*/}
+              <span className="pull-left">
+                <a className="text-decoration-none"
+                   href={LinkPath.AuthLogin}>
+                &laquo;&nbsp;密码登录
               </a>
+              </span>
+              {/*register*/}
+              <span className="pull-right">
+                <a className="text-decoration-none"
+                   href={LinkPath.AuthSignup}>
+                  没有账号？注册&nbsp;&raquo;
+                </a>
+              </span>
             </p>
           </div>
         </div>

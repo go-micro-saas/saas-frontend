@@ -1,6 +1,6 @@
 import "@src/assets/login/css/login.css"
 import {useEffect, useState} from "react";
-import {LinkPath} from "@src/paths/link_path.tsx";
+import {LinkPath} from "@src/global/link_path.tsx";
 
 function RegisterForm() {
   // show password

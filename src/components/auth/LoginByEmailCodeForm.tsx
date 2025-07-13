@@ -1,9 +1,10 @@
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
-import {LinkPath} from "@src/paths/link_path.tsx";
+import {LinkPath} from "@src/global/link_path.tsx";
+import {EmailRegex, VerificationCodeRegex} from "@src/global/validate_rules.tsx";
 
 function LoginByEmailCodeForm() {
   // getVerifyCode
@@ -36,25 +37,50 @@ function LoginByEmailCodeForm() {
     // console.log("remainingSeconds: ", remainingSeconds);
   }, [remainingSeconds]);
 
+  // checkLoginAccount
+  const checkLoginAccount = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const input = event.target;
+    const value = input.value;
+    if (EmailRegex.test(value)) {
+      input.classList.remove('is-invalid');
+      input.classList.add('is-valid');
+    } else {
+      input.classList.remove('is-valid');
+      input.classList.add('is-invalid');
+    }
+  };
+  // checkVerifyCode
+  const checkVerifyCode = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const input = event.target;
+    const value = input.value;
+    if (VerificationCodeRegex.test(value)) {
+      input.classList.remove('is-invalid');
+      input.classList.add('is-valid');
+    } else {
+      input.classList.remove('is-valid');
+      input.classList.add('is-invalid');
+    }
+  };
+
   return (
     <>
-      {/*<div className="alert alert-info d-flex justify-content-center align-items-center fs-3">*/}
-      {/*  倒计时：{formatTime(remainingSeconds)}*/}
-      {/*</div>*/}
       <form id="login-form">
         <div className="row mb-3">
-          <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">Account:</label>
+          <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">Email:</label>
           <div className="col-sm-9">
-            <input id="inputLoginAccount" type="text"
+            <input id="inputLoginAccount" type="email"
                    className="form-control"
-                   placeholder="电子邮箱 / 手机号码"/>
+                   placeholder="电子邮箱"
+                   required={true} onInput={checkLoginAccount}/>
           </div>
         </div>
         <div className="row mb-3">
           <label htmlFor="inputLoginCode" className="col-sm-3 col-form-label">Code:</label>
           <div className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginCode" type="text"
-                   className="form-control" placeholder="验证码"/>
+                   className="form-control"
+                   placeholder="验证码"
+                   required={true} onInput={checkVerifyCode}/>
             <button className="btn btn-outline-success" type="button"
                     disabled={!canGetVerifyCode}
                     onClick={doGetVerifyCode}>

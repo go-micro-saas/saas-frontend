@@ -1,4 +1,4 @@
-import {LinkPath} from "@src/paths/link_path.tsx";
+import {LinkPath} from "@src/global/link_path.tsx";
 import {useNavigate} from "react-router";
 
 function Error404() {

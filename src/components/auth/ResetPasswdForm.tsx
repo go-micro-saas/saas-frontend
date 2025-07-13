@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
-import {LinkPath} from "@src/paths/link_path.tsx";
+import {LinkPath} from "@src/global/link_path.tsx";
 
 function ResetPasswordForm() {
   // show password
