@@ -64,58 +64,49 @@
     color: #939da8;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
     #login-box {
-        width: 32%
+        width: 33%
     }
 }
 
-@media (min-width: 1000px)and (max-width: 1200px) {
+@media (min-width: 1300px) and (max-width: 1400px) {
+    #login-box {
+        width: 39%
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1300px) {
     #login-box {
         width: 45%
     }
 }
 
-@media (min-width: 800px)and (max-width: 1000px) {
-    #logo {
-        width: 60%;
-    }
-
+@media (min-width: 1000px)and (max-width: 1200px) {
     #login-box {
-        width: 56%
+        width: 50%
+    }
+}
+
+@media (min-width: 800px)and (max-width: 1000px) {
+    #login-box {
+        width: 60%
     }
 }
 
 @media (min-width: 600px)and (max-width: 800px) {
-    #logo {
-        width: 60%;
-    }
-
     #login-box {
-        width: 75%
+        width: 80%
     }
 }
 
 @media (max-width: 600px) {
-    #logo {
-        width: 60%;
-    }
-
     #login-box {
-        width: 80%
+        width: 85%
     }
-
-    /*#login-box form label {*/
-    /*    width: 100%;*/
-    /*    min-width: 100%;*/
-    /*    max-width: 100%;*/
-    /*}*/
 }
 
 @media (max-width: 480px) {
-    #logo {
-        width: 50%;
-    }
 
     #login-box {
         width: 90%
