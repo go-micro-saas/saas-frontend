@@ -25,9 +25,9 @@ export interface CompanyInfo {
 }
 
 export interface VerifyCodeTime {
-  loginVerifyCodeTime?: number
-  signupVerifyCodeTime?: number
-  resetPasswdVerifyCodeTime?: number
+  loginVerifyCodeNextTime?: number
+  signupVerifyCodeNextTime?: number
+  resetPasswdVerifyCodeNextTime?: number
 }
 
 export type MyStore = {
@@ -50,4 +50,7 @@ export type MyStore = {
   // verify code time
   verifyCodeTime: VerifyCodeTime
   setVerifyCodeTime: (info: VerifyCodeTime) => void
+  setLoginVerifyCodeNextTime: (time: number) => void
+  setSignupVerifyCodeNextTime: (time: number) => void
+  setResetPasswdVerifyCodeNextTime: (time: number) => void
 }

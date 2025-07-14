@@ -1,5 +1,6 @@
 import {create} from 'zustand'
 import {persist, createJSONStorage} from 'zustand/middleware'
+import {useShallow} from 'zustand/react/shallow'
 import type {
   AuthToken, UserInfo,
   EmployeeInfo, CompanyInfo,
@@ -7,7 +8,7 @@ import type {
   MyStore,
 } from "@src/global/store_const.tsx";
 
-export const ProjectStore = create<MyStore>()(
+const ProjectStore = create<MyStore>()(
   persist(
     (set) => ({
       // token
@@ -29,10 +30,36 @@ export const ProjectStore = create<MyStore>()(
       // get verify code time
       verifyCodeTime: {},
       setVerifyCodeTime: (info: VerifyCodeTime) => set({verifyCodeTime: info},),
+      setLoginVerifyCodeNextTime: (time: number) => set((state) => ({
+        verifyCodeTime: {
+          ...state.verifyCodeTime,
+          loginVerifyCodeNextTime: time,
+        }
+      })),
+      setSignupVerifyCodeNextTime: (time: number) => set((state) => ({
+        verifyCodeTime: {
+          ...state.verifyCodeTime,
+          signupVerifyCodeNextTime: time,
+        }
+      })),
+      setResetPasswdVerifyCodeNextTime: (time: number) => set((state) => ({
+        verifyCodeTime: {
+          ...state.verifyCodeTime,
+          resetPasswdVerifyCodeNextTime: time,
+        }
+      })),
     }),
     {
-      name: 'saas_platform',
+      name: "saas-frontend",
       storage: createJSONStorage(() => sessionStorage),
     },
   ),
 )
+
+export const MyProjectStore = () => {
+  return ProjectStore(
+    useShallow((state) => ({
+      ...state
+    })),
+  )
+}

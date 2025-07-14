@@ -5,6 +5,7 @@ import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
 import {LinkPath} from "@src/global/link_path.tsx";
 import {CheckLoginAccount, CheckPassword, CheckVerifyCode} from "@src/global/validate_rules.tsx";
+import {MyProjectStore} from "@src/global/store.tsx";
 
 function ResetPasswordForm() {
   // show password
@@ -15,7 +16,8 @@ function ResetPasswordForm() {
   const showPasswordIcon = showPassword ? 'icon-off' : 'icon-eye-open';
   const passwordType = showPassword ? 'text' : 'password';
 
-  // getVerifyCode
+  // get verify code time
+  const {verifyCodeTime, setResetPasswdVerifyCodeNextTime} = MyProjectStore();
   const [canGetVerifyCode, setCanGetVerifyCode] = useState(true);
   const [remainingSeconds, setRemainingSeconds] = useState(0);
   const [nextGetCodeTime, setNextGetCodeTime] = useState((new Date()).getTime());
@@ -26,20 +28,26 @@ function ResetPasswordForm() {
     setRemainingSeconds(totalSeconds);
     const nextTime = new Date(new Date().getTime() + totalSeconds * 1000).getTime();
     setNextGetCodeTime(nextTime);
+    setResetPasswdVerifyCodeNextTime(nextTime);
   };
   // 计算初始剩余时间
   useEffect(() => {
+    // getVerifyCode
+    const storeNextGetCodeTime = verifyCodeTime.resetPasswdVerifyCodeNextTime || 0;
+    if (storeNextGetCodeTime > nextGetCodeTime) {
+      setNextGetCodeTime(storeNextGetCodeTime);
+    }
+    // calc
     const calculateRemaining = () => {
-      const totalSeconds = Math.ceil((nextGetCodeTime - (new Date()).getTime()) / 1000);
-      setRemainingSeconds(Math.max(totalSeconds, 0));
+      setRemainingSeconds(Math.max(Math.ceil((nextGetCodeTime - (new Date()).getTime()) / 1000), 0));
     };
     calculateRemaining();
     const timer = setInterval(calculateRemaining, 1000);
     return () => clearInterval(timer);
-  }, [nextGetCodeTime]);
+  }, [nextGetCodeTime, verifyCodeTime.resetPasswdVerifyCodeNextTime]);
   // 倒计时结束时的逻辑
   useEffect(() => {
-    console.log("remainingSeconds: ", remainingSeconds);
+    // console.log("remainingSeconds: ", remainingSeconds);
     if (remainingSeconds > 0) {
       setCanGetVerifyCode(false);
       return;
