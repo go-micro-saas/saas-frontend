@@ -16,7 +16,7 @@ function ResetPasswordForm() {
   const showPasswordIcon = showPassword ? 'icon-off' : 'icon-eye-open';
   const passwordType = showPassword ? 'text' : 'password';
 
-  // get verify code time
+  // getVerifyCode
   const {verifyCodeTime, setResetPasswdVerifyCodeNextTime} = MyProjectStore();
   const [canGetVerifyCode, setCanGetVerifyCode] = useState(true);
   const [remainingSeconds, setRemainingSeconds] = useState(0);

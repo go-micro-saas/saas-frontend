@@ -58,8 +58,6 @@ const ProjectStore = create<MyStore>()(
 
 export const MyProjectStore = () => {
   return ProjectStore(
-    useShallow((state) => ({
-      ...state
-    })),
+    useShallow((state) => ({...state})),
   )
 }
