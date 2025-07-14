@@ -30,11 +30,14 @@ function LoginByEmailCodeForm() {
   }, [nextGetCodeTime]);
   // 倒计时结束时的逻辑
   useEffect(() => {
+    console.log("remainingSeconds: ", remainingSeconds);
+    if (remainingSeconds > 0) {
+      setCanGetVerifyCode(false);
+      return;
+    }
     if (remainingSeconds === 0) {
       setCanGetVerifyCode(true);
-      // console.log('倒计时结束！');
     }
-    // console.log("remainingSeconds: ", remainingSeconds);
   }, [remainingSeconds]);
 
   return (

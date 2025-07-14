@@ -4,7 +4,7 @@
 }
 
 #login-box {
-    width: 36%;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden !important;
@@ -62,58 +62,4 @@
 #login-box .normal_text a {
     cursor: pointer;
     color: #939da8;
-}
-
-@media (min-width: 1400px) {
-    #login-box {
-        width: 33%
-    }
-}
-
-@media (min-width: 1300px) and (max-width: 1400px) {
-    #login-box {
-        width: 39%
-    }
-}
-
-@media (min-width: 1200px) and (max-width: 1300px) {
-    #login-box {
-        width: 45%
-    }
-}
-
-@media (min-width: 1000px)and (max-width: 1200px) {
-    #login-box {
-        width: 50%
-    }
-}
-
-@media (min-width: 800px)and (max-width: 1000px) {
-    #login-box {
-        width: 60%
-    }
-}
-
-@media (min-width: 600px)and (max-width: 800px) {
-    #login-box {
-        width: 80%
-    }
-}
-
-@media (max-width: 600px) {
-    #login-box {
-        width: 85%
-    }
-}
-
-@media (max-width: 480px) {
-
-    #login-box {
-        width: 90%
-    }
-
-    #login-box .control-group {
-        padding: 8px 0;
-        margin-bottom: 0;
-    }
 }

@@ -24,6 +24,12 @@ export interface CompanyInfo {
   avatar?: string
 }
 
+export interface VerifyCodeTime {
+  loginVerifyCodeTime?: number
+  signupVerifyCodeTime?: number
+  resetPasswdVerifyCodeTime?: number
+}
+
 export type MyStore = {
   // token
   authToken: AuthToken
@@ -40,4 +46,8 @@ export type MyStore = {
   // company
   companyInfo: CompanyInfo
   setCompanyInfo: (info: CompanyInfo) => void
+
+  // verify code time
+  verifyCodeTime: VerifyCodeTime
+  setVerifyCodeTime: (info: VerifyCodeTime) => void
 }

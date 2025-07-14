@@ -3,7 +3,8 @@ import {persist, createJSONStorage} from 'zustand/middleware'
 import type {
   AuthToken, UserInfo,
   EmployeeInfo, CompanyInfo,
-  MyStore
+  VerifyCodeTime,
+  MyStore,
 } from "@src/global/store_const.tsx";
 
 export const ProjectStore = create<MyStore>()(
@@ -24,6 +25,10 @@ export const ProjectStore = create<MyStore>()(
       // company
       companyInfo: {},
       setCompanyInfo: (info: CompanyInfo) => set({companyInfo: info},),
+
+      // get verify code time
+      verifyCodeTime: {},
+      setVerifyCodeTime: (info: VerifyCodeTime) => set({verifyCodeTime: info},),
     }),
     {
       name: 'saas_platform',
