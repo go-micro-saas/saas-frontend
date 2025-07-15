@@ -5,6 +5,7 @@ import AuthLogo from "./AuthLogo.tsx"
 import LoginByEmailCodeForm from "./LoginByEmailCodeForm.tsx"
 
 import {LinkPath} from "@src/global/link_path.tsx";
+import PageFooter from "@src/components/layouts/PageFooter.tsx";
 
 function LoginByEmailCode() {
   return (
@@ -37,6 +38,8 @@ function LoginByEmailCode() {
           </div>
         </div>
       </div>
+      {/*footer*/}
+      <PageFooter/>
     </>
   );
 }

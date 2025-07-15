@@ -3,6 +3,7 @@ import "@src/assets/login/css/login.css"
 
 import AuthLogo from "./AuthLogo.tsx"
 import RegisterForm from "./RegisterForm.tsx"
+import PageFooter from "@src/components/layouts/PageFooter.tsx";
 
 function Register() {
   return (
@@ -16,6 +17,8 @@ function Register() {
           <RegisterForm/>
         </div>
       </div>
+      {/*footer*/}
+      <PageFooter/>
     </>
   );
 }

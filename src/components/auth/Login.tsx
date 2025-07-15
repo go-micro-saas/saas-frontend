@@ -5,6 +5,7 @@ import AuthLogo from "./AuthLogo.tsx"
 import LoginForm from "./LoginForm.tsx"
 
 import {LinkPath} from "@src/global/link_path.tsx";
+import PageFooter from "@src/components/layouts/PageFooter.tsx";
 
 function Login() {
   return (
@@ -37,6 +38,8 @@ function Login() {
           </div>
         </div>
       </div>
+      {/*footer*/}
+      <PageFooter/>
     </>
   );
 }

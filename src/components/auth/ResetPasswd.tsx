@@ -3,6 +3,7 @@ import "@src/assets/login/css/login.css"
 
 import AuthLogo from "./AuthLogo.tsx"
 import ResetPasswordForm from "./ResetPasswdForm.tsx"
+import PageFooter from "@src/components/layouts/PageFooter.tsx";
 
 function ResetPassword() {
   return (
@@ -16,6 +17,8 @@ function ResetPassword() {
           <ResetPasswordForm/>
         </div>
       </div>
+      {/*footer*/}
+      <PageFooter/>
     </>
   );
 }
