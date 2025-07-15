@@ -5,7 +5,7 @@ import Dashboard from "@src/components/dashboard/Dashboard.tsx";
 import Login from "@src/components/auth/Login.tsx";
 import Register from "@src/components/auth/Register.tsx";
 import ResetPassword from "@src/components/auth/ResetPasswd.tsx";
-import Error404 from "@src/components/error/Error404.tsx";
+import Status404 from "@src/components/status/Status404.tsx";
 import LoginByEmailCode from "@src/components/auth/LoginByEmailCode.tsx";
 
 const router = createBrowserRouter([
@@ -22,7 +22,8 @@ const router = createBrowserRouter([
   {path: LinkPath.AuthForgotPassword, Component: ResetPassword},
 
   // 404
-  {path: "*", Component: Error404}
+  {path: LinkPath.NotFound, Component: Status404},
+  {path: "*", Component: Status404},
 ]);
 
 export default router;

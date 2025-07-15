@@ -92,7 +92,7 @@ function LoginByEmailCodeForm() {
             </div>
           </div>
         </div>
-        <div className="col-12 form-actions">
+        <div className="col-12">
           <span className="pull-left">
             <a type="button" className="btn btn-info"
                href={LinkPath.AuthResetPassword}>忘记密码 ?</a>

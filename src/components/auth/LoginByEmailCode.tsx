@@ -1,17 +1,17 @@
 import "@src/assets/layouts/css/page_top_border.css"
 import "@src/assets/login/css/login.css"
 
+import {LinkPath} from "@src/global/link_path.tsx";
 import AuthLogo from "./AuthLogo.tsx"
 import LoginByEmailCodeForm from "./LoginByEmailCodeForm.tsx"
-
-import {LinkPath} from "@src/global/link_path.tsx";
 import PageFooter from "@src/components/layouts/PageFooter.tsx";
+import Container from 'react-bootstrap/Container';
 
 function LoginByEmailCode() {
   return (
     <>
       {/*<div className="page_top_border"></div>*/}
-      <div className="container-fluid my-auth-login-container">
+      <Container fluid className="my-auth-login-container">
         <div id="login-box" className="row">
           {/*logo*/}
           <AuthLogo/>
@@ -37,7 +37,7 @@ function LoginByEmailCode() {
             </p>
           </div>
         </div>
-      </div>
+      </Container>
       {/*footer*/}
       <PageFooter/>
     </>

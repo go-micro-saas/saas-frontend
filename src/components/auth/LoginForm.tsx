@@ -5,6 +5,9 @@ import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
 import {LinkPath} from "@src/global/link_path.tsx";
 import {CheckLoginAccount, CheckPassword} from "@src/global/validate_rules.tsx";
+import Row from'react-bootstrap/Row';
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
 
 function LoginForm() {
   // show password
@@ -17,23 +20,23 @@ function LoginForm() {
 
   return (
     <>
-      <form id="login-form">
-        <div className="row mb-3">
-          <label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">
+      <Form id="login-form">
+        <Row className="mb-3">
+          <Form.Label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">
             Account:<span className="text-danger align-middle">*</span>
-          </label>
-          <div className="col-sm-9">
+          </Form.Label>
+          <Col className="col-sm-9">
             <input id="inputLoginAccount" type="text"
                    className="form-control"
                    placeholder="电子邮箱 / 手机号码"
                    required={true} onInput={CheckLoginAccount}/>
-          </div>
-        </div>
-        <div className="row mb-3">
-          <label htmlFor="inputLoginPassword" className="col-sm-3 col-form-label">
+          </Col>
+        </Row>
+        <Row className="mb-3">
+          <Form.Label htmlFor="inputLoginPassword" className="col-sm-3 col-form-label">
             Password:<span className="text-danger align-middle">*</span>
-          </label>
-          <div className="input-group col-sm-9 my-col-sm-9">
+          </Form.Label>
+          <Col className="input-group col-sm-9 my-col-sm-9">
             <input id="inputLoginPassword" type={passwordType}
                    className="form-control "
                    placeholder="登陆密码"
@@ -41,21 +44,21 @@ function LoginForm() {
             <span className="input-group-text" onClick={doShowPassword}>
               <i className={showPasswordIcon}></i>
             </span>
-          </div>
-        </div>
-        <div className="row mb-3">
-          <label htmlFor="inputLoginRemember" className="col-sm-3 col-form-label">Remember:</label>
-          <div className="col-sm-9 align-content-center">
+          </Col>
+        </Row>
+        <Row className="mb-3">
+          <Form.Label htmlFor="inputLoginRemember" className="col-sm-3 col-form-label">Remember:</Form.Label>
+          <Col className="col-sm-9 align-content-center">
             <div className="form-check">
               <input id="inputLoginRemember" type="checkbox"
                      className="form-check-input" value=""/>
-              <label className="form-check-label" htmlFor="inputLoginRemember">
+              <Form.Label className="form-check-label" htmlFor="inputLoginRemember">
                 记住登陆
-              </label>
+              </Form.Label>
             </div>
-          </div>
-        </div>
-        <div className="col-12 form-actions">
+          </Col>
+        </Row>
+        <Col className="col-12">
           <span className="pull-left">
             <a type="button" className="btn btn-info"
                href={LinkPath.AuthResetPassword}>忘记密码 ?</a>
@@ -63,8 +66,8 @@ function LoginForm() {
           <span className="pull-right">
                 <button type="submit" className="btn btn-primary">登陆</button>
             </span>
-        </div>
-      </form>
+        </Col>
+      </Form>
     </>
   )
 }

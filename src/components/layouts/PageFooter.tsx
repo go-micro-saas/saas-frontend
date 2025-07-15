@@ -1,11 +1,12 @@
 import myLogo from '@src/assets/react.svg'
 import '@src/assets/layouts/css/layout.css';
 import '@src/assets/layouts/css/page_footer.css';
+import Container from 'react-bootstrap/Container';
 
 function PageFooter() {
   return (
     <>
-      <div className="container-fluid my-page-footer-container">
+      <Container fluid className="my-page-footer-container">
         <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 border-top">
           <p className="col-md-4 mb-0 text-body-secondary">
             © 2020-2025
@@ -67,7 +68,7 @@ function PageFooter() {
             粤ICP备15052531号-1
           </a>
         </p>
-      </div>
+      </Container>
     </>
   )
 }

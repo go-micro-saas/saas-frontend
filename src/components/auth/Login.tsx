@@ -1,18 +1,19 @@
 import "@src/assets/layouts/css/page_top_border.css"
 import "@src/assets/login/css/login.css"
 
+import {LinkPath} from "@src/global/link_path.tsx";
 import AuthLogo from "./AuthLogo.tsx"
 import LoginForm from "./LoginForm.tsx"
-
-import {LinkPath} from "@src/global/link_path.tsx";
 import PageFooter from "@src/components/layouts/PageFooter.tsx";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 function Login() {
   return (
     <>
       {/*<div className="page_top_border"></div>*/}
-      <div className="container-fluid my-auth-login-container">
-        <div id="login-box" className="row">
+      <Container fluid className="my-auth-login-container">
+        <Row id="login-box">
           {/*logo*/}
           <AuthLogo/>
           {/*form*/}
@@ -36,8 +37,8 @@ function Login() {
               </span>
             </p>
           </div>
-        </div>
-      </div>
+        </Row>
+      </Container>
       {/*footer*/}
       <PageFooter/>
     </>

@@ -115,7 +115,7 @@ function ResetPasswordForm() {
             </span>
           </div>
         </div>
-        <div className="col-12 form-actions">
+        <div className="col-12">
           <span className="pull-left">
             <a type="button" className="btn btn-info"
                href={LinkPath.AuthLogin}>&laquo; 返回登陆</a>

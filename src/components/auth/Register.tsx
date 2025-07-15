@@ -4,19 +4,20 @@ import "@src/assets/login/css/login.css"
 import AuthLogo from "./AuthLogo.tsx"
 import RegisterForm from "./RegisterForm.tsx"
 import PageFooter from "@src/components/layouts/PageFooter.tsx";
+import Container from 'react-bootstrap/Container';
 
 function Register() {
   return (
     <>
       {/*<div className="page_top_border"></div>*/}
-      <div className="container-fluid my-auth-login-container">
+      <Container fluid className="my-auth-login-container">
         <div id="login-box" className="row">
           {/*logo*/}
           <AuthLogo/>
           {/*form*/}
           <RegisterForm/>
         </div>
-      </div>
+      </Container>
       {/*footer*/}
       <PageFooter/>
     </>

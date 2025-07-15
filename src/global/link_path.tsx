@@ -10,4 +10,7 @@ export const LinkPath = Object.freeze({
   AuthSignup: "/auth/signup",
   AuthResetPassword: "/auth/reset-password",
   AuthForgotPassword: "/auth/forgot-password",
+
+  // 404
+  NotFound: "/404",
 })
