@@ -46,8 +46,8 @@
 
 .my-header-navbar-sign-up {
     height: 45px;
-    display: flex;
-    font-weight: bold;
+    display: flex !important;
+    font-weight: bold !important;
     align-items: center;
     border-radius: 6px;
 }

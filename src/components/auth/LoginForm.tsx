@@ -5,7 +5,7 @@ import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
 import {LinkPath} from "@src/global/link_path.tsx";
 import {CheckLoginAccount, CheckPassword} from "@src/global/validate_rules.tsx";
-import Row from'react-bootstrap/Row';
+import Row from 'react-bootstrap/Row';
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 

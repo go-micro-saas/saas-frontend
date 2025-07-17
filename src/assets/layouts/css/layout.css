@@ -42,13 +42,6 @@
     /*margin-right: 0.375rem !important;*/
 }
 
-.my-input-required {
-    color: red;
-    font-weight: bold;
-}
-
-@media (min-width: 576px) {
-    .my-col-sm-9 {
-        width: 75%;
-    }
+div.my-col-sm-9 {
+    width: 75%;
 }
