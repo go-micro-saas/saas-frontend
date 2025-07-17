@@ -15,7 +15,7 @@ function PageHeader() {
           <Container fluid>
             {/*brand*/}
             <Navbar.Brand className="d-flex"
-                          href="#home">
+                          href="/">
               <img src={myLogo} className="logo" alt="SaaS logo"/>
               <span className="my-margin-x3"></span>
               <span className="fs-4">SaaS Platform</span>
@@ -25,8 +25,8 @@ function PageHeader() {
             {/*navbar*/}
             <Navbar.Collapse id="myNavbarSupportedContent">
               <Nav className="me-auto justify-content-lg-center container-fluid">
-                <Nav.Link className="my-header-navbar-a active"
-                          href="#">
+                <Nav.Link className="my-header-navbar-a"
+                          href="/home">
                   <i className="icon-home"></i>
                   <span className="my-margin-r3"></span>
                   Home
