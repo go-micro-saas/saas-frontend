@@ -32,19 +32,19 @@ function PageHeader() {
                   Home
                 </Nav.Link>
                 <Nav.Link className="my-header-navbar-a disabled"
-                          href="#">
+                          href="#2">
                   <i className="icon-book"></i>
                   <span className="my-margin-r3"></span>
                   Documents
                 </Nav.Link>
                 <Nav.Link className="my-header-navbar-a disabled"
-                          href="#">
+                          href="#3">
                   <i className="icon-shopping-cart"></i>
                   <span className="my-margin-r3"></span>
                   Pricing
                 </Nav.Link>
                 <Nav.Link className="my-header-navbar-a disabled"
-                          href="#">
+                          href="#4">
                   <i className="icon-tasks"></i>
                   <span className="my-margin-r3"></span>
                   Disabled
