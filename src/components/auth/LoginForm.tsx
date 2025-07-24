@@ -3,8 +3,8 @@ import {useState} from 'react';
 import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
-import {LinkPath} from "@src/global/link_path.tsx";
-import {CheckLoginAccount, CheckPassword} from "@src/global/validate_rules.tsx";
+import {LinkPath} from "@src/global/link_path.ts";
+import {CheckPassword} from "@src/global/validate_rules.tsx";
 import Row from 'react-bootstrap/Row';
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -26,10 +26,18 @@ function LoginForm() {
             Account:<span className="text-danger align-middle">*</span>
           </Form.Label>
           <Col className="col-sm-9">
-            <input id="inputLoginAccount" type="text"
-                   className="form-control"
-                   placeholder="电子邮箱 / 手机号码"
-                   required={true} onInput={CheckLoginAccount}/>
+            <Form.Control
+              type="text"
+              placeholder="电子邮箱 / 手机号码"
+              required
+            />
+            <Form.Control.Feedback type="invalid">
+              Looks good!
+            </Form.Control.Feedback>
+            {/*<input id="inputLoginAccount" type="text"*/}
+            {/*       className="form-control"*/}
+            {/*       placeholder="电子邮箱 / 手机号码"*/}
+            {/*       required={true} onInput={CheckLoginAccount}/>*/}
           </Col>
         </Row>
         <Row className="mb-3">

@@ -50,22 +50,18 @@ export default defineConfig({
 }
 ```
 
-## bootstrap
+## 依赖
 
 ```shell
 # bootstrap
 pnpm install --save react-bootstrap bootstrap @popperjs/core
-```
-
-## react router
-
-```shell
 # react router
 pnpm install react-router
-```
-
-## zustand
-
-```shell
+# zustand
 pnpm install zustand
+# swagger-typescript-api
+pnpm install --save-dev swagger-typescript-api
+# axios
+pnpm install axios
 ```
+
