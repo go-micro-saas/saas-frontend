@@ -69,42 +69,6 @@ export interface RpcStatus {
   details?: ProtobufAny[];
 }
 
-export namespace Api {
-  /**
-   * No description
-   * @tags SrvSaasBackendAuthV1
-   * @name SrvSaasBackendAuthV1LoginByEmail
-   * @summary 身份验证-Email登录
-   * @request POST:/api/v1/saas-backend/auth/login-by-email
-   * @response `200` `Resourcev1LoginResp` A successful response.
-   * @response `default` `RpcStatus` An unexpected error response.
-   */
-  export namespace SrvSaasBackendAuthV1LoginByEmail {
-    export type RequestParams = {};
-    export type RequestQuery = {};
-    export type RequestBody = Resourcev1LoginByEmailReq;
-    export type RequestHeaders = {};
-    export type ResponseBody = Resourcev1LoginResp;
-  }
-
-  /**
-   * No description
-   * @tags SrvSaasBackendAuthV1
-   * @name SrvSaasBackendAuthV1LoginByPhone
-   * @summary 身份验证-手机登录
-   * @request POST:/api/v1/saas-backend/auth/login-by-phone
-   * @response `200` `Resourcev1LoginResp` A successful response.
-   * @response `default` `RpcStatus` An unexpected error response.
-   */
-  export namespace SrvSaasBackendAuthV1LoginByPhone {
-    export type RequestParams = {};
-    export type RequestQuery = {};
-    export type RequestBody = Resourcev1LoginByPhoneReq;
-    export type RequestHeaders = {};
-    export type ResponseBody = Resourcev1LoginResp;
-  }
-}
-
 import type {
   AxiosInstance,
   AxiosRequestConfig,
@@ -295,8 +259,6 @@ export class Api<
      * @name SrvSaasBackendAuthV1LoginByEmail
      * @summary 身份验证-Email登录
      * @request POST:/api/v1/saas-backend/auth/login-by-email
-     * @response `200` `Resourcev1LoginResp` A successful response.
-     * @response `default` `RpcStatus` An unexpected error response.
      */
     srvSaasBackendAuthV1LoginByEmail: (
       body: Resourcev1LoginByEmailReq,
@@ -318,8 +280,6 @@ export class Api<
      * @name SrvSaasBackendAuthV1LoginByPhone
      * @summary 身份验证-手机登录
      * @request POST:/api/v1/saas-backend/auth/login-by-phone
-     * @response `200` `Resourcev1LoginResp` A successful response.
-     * @response `default` `RpcStatus` An unexpected error response.
      */
     srvSaasBackendAuthV1LoginByPhone: (
       body: Resourcev1LoginByPhoneReq,

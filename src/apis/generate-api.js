@@ -92,11 +92,11 @@ async function generateAllApis() {
       const generateParam = {
         input: entryFile,
         output: path.join(apiPath, outputPath),
-        axios: true,
         httpClientType: 'axios',
-        generateClientClass: true,
-        generateRouteTypes: true,
-        generateResponses: true,
+        axios: true,
+        generateClientClass: false,
+        generateRouteTypes: false,
+        generateResponses: false,
         extraTemplates: [],
       }
       await generateApi(generateParam);

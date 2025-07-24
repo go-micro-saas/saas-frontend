@@ -36,28 +36,6 @@ export interface RpcStatus {
   details?: ProtobufAny[];
 }
 
-export namespace Api {
-  /**
-   * No description
-   * @tags SrvSaasBackendV1
-   * @name SrvSaasBackendV1Ping
-   * @summary Ping ping
-   * @request GET:/api/v1/saas-backend/ping
-   * @response `200` `Apibackendresourcev1PingResp` A successful response.
-   * @response `default` `RpcStatus` An unexpected error response.
-   */
-  export namespace SrvSaasBackendV1Ping {
-    export type RequestParams = {};
-    export type RequestQuery = {
-      /** 请求消息 */
-      message?: string;
-    };
-    export type RequestBody = never;
-    export type RequestHeaders = {};
-    export type ResponseBody = Apibackendresourcev1PingResp;
-  }
-}
-
 import type {
   AxiosInstance,
   AxiosRequestConfig,
@@ -248,8 +226,6 @@ export class Api<
      * @name SrvSaasBackendV1Ping
      * @summary Ping ping
      * @request GET:/api/v1/saas-backend/ping
-     * @response `200` `Apibackendresourcev1PingResp` A successful response.
-     * @response `default` `RpcStatus` An unexpected error response.
      */
     srvSaasBackendV1Ping: (
       query?: {
