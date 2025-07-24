@@ -4,7 +4,6 @@ import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
 import {LinkPath} from "@src/global/link_path.ts";
-import {CheckLoginAccount, CheckPassword, CheckVerifyCode} from "@src/global/validate_rules.tsx";
 import {MyProjectStore} from "@src/global/store_instance.ts";
 
 function ResetPasswordForm() {
@@ -68,7 +67,7 @@ function ResetPasswordForm() {
             <input id="inputLoginAccount" type="email"
                    className="form-control"
                    placeholder="电子邮箱"
-                   required={true} onInput={CheckLoginAccount}/>
+                   required={true}/>
           </div>
         </div>
         <div className="row mb-3">
@@ -79,7 +78,7 @@ function ResetPasswordForm() {
             <input id="inputLoginCode" type="text"
                    className="form-control"
                    placeholder="验证码"
-                   required={true} onInput={CheckVerifyCode}/>
+                   required={true}/>
             <button className="btn btn-outline-success" type="button"
                     disabled={!canGetVerifyCode}
                     onClick={doGetVerifyCode}>
@@ -95,7 +94,7 @@ function ResetPasswordForm() {
             <input id="inputLoginPassword" type={passwordType}
                    className="form-control "
                    placeholder="登陆密码"
-                   required={true} onInput={CheckPassword}/>
+                   required={true}/>
             <span className="input-group-text" onClick={doShowPassword}>
               <i className={showPasswordIcon}></i>
             </span>
@@ -109,7 +108,7 @@ function ResetPasswordForm() {
             <input id="inputLoginPassword2" type={passwordType}
                    className="form-control "
                    placeholder="再次输入密码"
-                   required={true} onInput={CheckPassword}/>
+                   required={true}/>
             <span className="input-group-text" onClick={doShowPassword}>
               <i className={showPasswordIcon}></i>
             </span>

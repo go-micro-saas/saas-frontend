@@ -1,7 +1,7 @@
 import "@src/assets/login/css/login.css"
 import {useEffect, useState} from "react";
 import {LinkPath} from "@src/global/link_path.ts";
-import {CheckEmail, CheckPassword, CheckVerifyCode} from "@src/global/validate_rules.tsx";
+import {CheckEmail, CheckPassword, CheckVerifyCode} from "@src/global/validate_rules.ts";
 import {MyProjectStore} from "@src/global/store_instance.ts";
 
 function RegisterForm() {

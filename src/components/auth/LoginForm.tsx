@@ -4,7 +4,6 @@ import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
 import {LinkPath} from "@src/global/link_path.ts";
-import {CheckPassword} from "@src/global/validate_rules.tsx";
 import Row from 'react-bootstrap/Row';
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -48,7 +47,7 @@ function LoginForm() {
             <input id="inputLoginPassword" type={passwordType}
                    className="form-control "
                    placeholder="登陆密码"
-                   required={true} onInput={CheckPassword}/>
+                   required={true}/>
             <span className="input-group-text" onClick={doShowPassword}>
               <i className={showPasswordIcon}></i>
             </span>

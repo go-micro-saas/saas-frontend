@@ -4,7 +4,7 @@ import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
 import {LinkPath} from "@src/global/link_path.ts";
-import {CheckEmail, CheckVerifyCode} from "@src/global/validate_rules.tsx";
+import {CheckEmail, CheckVerifyCode} from "@src/global/validate_rules.ts";
 import {MyProjectStore} from "@src/global/store_instance.ts";
 
 function LoginByEmailCodeForm() {

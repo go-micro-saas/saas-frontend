@@ -1,0 +1,210 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "api/saas-backend/v1/services/backend_auth.service.v1.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "SrvSaasBackendAuthV1"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/saas-backend/auth/login-by-email": {
+      "post": {
+        "summary": "身份验证-Email登录",
+        "operationId": "SrvSaasBackendAuthV1_LoginByEmail",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/resourcev1LoginResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/resourcev1LoginByEmailReq"
+            }
+          }
+        ],
+        "tags": [
+          "SrvSaasBackendAuthV1"
+        ]
+      }
+    },
+    "/api/v1/saas-backend/auth/login-by-phone": {
+      "post": {
+        "summary": "身份验证-手机登录",
+        "operationId": "SrvSaasBackendAuthV1_LoginByPhone",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/resourcev1LoginResp"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/resourcev1LoginByPhoneReq"
+            }
+          }
+        ],
+        "tags": [
+          "SrvSaasBackendAuthV1"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "resourcev1LoginByEmailReq": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string",
+          "title": "md5(密码)"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    },
+    "resourcev1LoginByPhoneReq": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string",
+          "title": "md5(密码)"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    },
+    "resourcev1LoginResp": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "data": {
+          "$ref": "#/definitions/resourcev1LoginRespData"
+        }
+      }
+    },
+    "resourcev1LoginRespData": {
+      "type": "object",
+      "properties": {
+        "user_info": {
+          "$ref": "#/definitions/resourcev1UserInfo"
+        },
+        "access_token": {
+          "type": "string"
+        },
+        "access_token_expired_at": {
+          "type": "string",
+          "format": "int64",
+          "title": "时间戳，单位：秒"
+        },
+        "refresh_token": {
+          "type": "string"
+        },
+        "refresh_token_expired_at": {
+          "type": "string",
+          "format": "int64",
+          "title": "时间戳，单位：秒"
+        }
+      }
+    },
+    "resourcev1UserInfo": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "type": "string",
+          "format": "uint64"
+        },
+        "user_nickname": {
+          "type": "string"
+        },
+        "user_avatar": {
+          "type": "string"
+        }
+      },
+      "title": "UserInfo 用户信息"
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}
