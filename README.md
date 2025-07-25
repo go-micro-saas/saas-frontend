@@ -65,17 +65,13 @@ pnpm install --save-dev swagger-typescript-api
 pnpm install axios
 ```
 
-## 生成 typescript-api
+## swagger-typescript-api 生成
+
+[DOC:README.md](./src/apis/README.md)
 
 ```shell
-npm install --save-dev swagger-typescript-api
-npx swagger-typescript-api generate --help
-# output ./Api.ts
-npx swagger-typescript-api generate --path swagger/backend_auth.service.v1.swagger.json
-# output swagger/backend_auth.service.v1/Api.ts
-npx swagger-typescript-api generate --path swagger/backend_auth.service.v1.swagger.json -o swagger/backend_auth.service.v1
-npx swagger-typescript-api generate --path swagger/backend_auth.service.v1.swagger.json -o swagger/backend_auth.service.v1 --axios
-# output swagger/backend_auth.service.v1.ts
-npx swagger-typescript-api generate --path swagger/backend_auth.service.v1.swagger.json -o swagger -n backend_auth.service.v1.ts
+pnpm run generate:api
 ```
+
+
 

@@ -13,7 +13,7 @@ async function generateAllApis() {
   // 结果
   const result = {
     code: 0,
-    massage: "==> 成功执行：generate:api!!!",
+    massage: "generate:api success",
     data: {}
   };
 
@@ -63,23 +63,26 @@ async function generateAllApis() {
       if (outputPath.endsWith(swaggerFileSuffix)) {
         outputPath = outputPath.slice(0, -swaggerFileSuffix.length);
       }
+      outputPath = path.join(apiPath, outputPath);
       const generateParam = {
-        name: "",
         input: entryFile,
-        output: path.join(apiPath, outputPath),
+        output: outputPath,
         axios: true,
         httpClientType: 'axios',
         modular: true,
         templates: templatePath,
         addReadonly: false,
         extraTemplates: [],
+        cleanOutput: false,
+        silent: true, // debug
       }
       await generateApi(generateParam);
+      console.log(`\t编译成功：${outputPath}`);
     }
   } catch (error) {
     // 失败
     result.code = 1;
-    result.massage = "==> 生成 typescript-api 失败!!!"
+    result.massage = "typescript-api fail"
   }
   console.log("")
   return result;
