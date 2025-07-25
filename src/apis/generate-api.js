@@ -70,12 +70,8 @@ async function generateAllApis() {
         axios: true,
         httpClientType: 'axios',
         modular: true,
-        generateClientClass: false,
-        generateRouteTypes: false,
-        generateResponses: false,
-        enumNamesAsValues: false,
-        addReadonly: false,
         templates: templatePath,
+        addReadonly: false,
         extraTemplates: [],
       }
       await generateApi(generateParam);
