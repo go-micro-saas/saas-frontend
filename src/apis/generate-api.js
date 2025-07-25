@@ -3,38 +3,10 @@ import fs from 'fs';
 import {generateApi} from 'swagger-typescript-api';
 
 // 批量生成API客户端
-// async function generateAllApis() {
-//   try {
-//     for (const source of swaggerSources) {
-//       // 确保输出目录存在
-//       if (!fs.existsSync(source.output)) {
-//         fs.mkdirSync(source.output, {recursive: true});
-//       }
-//
-//       // 生成API客户端
-//       await generateApi({
-//         name: source.name,
-//         input: source.input,
-//         output: source.output,
-//         axios: true,
-//         httpClientType: 'axios',
-//         generateClientClass: true,
-//         generateRouteTypes: true,
-//         generateResponses: true,
-//         // 传递基础路径作为额外信息
-//         extraTemplates: [],
-//       });
-//
-//       console.log(`API client generated for ${source.input}`);
-//     }
-//   } catch (error) {
-//     console.error('Error generating API clients:', error);
-//   }
-// }
-
 const apiPathName = "api";
 const swaggerPathName = "swagger";
 const swaggerFileSuffix = ".swagger.json";
+const templatePathName = "template";
 
 // 批量生成API客户端
 async function generateAllApis() {
@@ -54,6 +26,8 @@ async function generateAllApis() {
     console.log(`==> 当前执行文件目录： ${currentPath}`);
     const apiPath = path.join(currentPath, apiPathName);
     console.log(`==> 输出api文件目录： ${apiPath}`);
+    const templatePath = path.join(currentPath, templatePathName);
+    console.log(`==> template文件目录： ${templatePath}`);
 
     // 检查swagger文件目录是否存在
     const swaggerPath = path.join(currentPath, swaggerPathName);
@@ -90,13 +64,18 @@ async function generateAllApis() {
         outputPath = outputPath.slice(0, -swaggerFileSuffix.length);
       }
       const generateParam = {
+        name: "",
         input: entryFile,
         output: path.join(apiPath, outputPath),
-        httpClientType: 'axios',
         axios: true,
+        httpClientType: 'axios',
+        modular: true,
         generateClientClass: false,
         generateRouteTypes: false,
         generateResponses: false,
+        enumNamesAsValues: false,
+        addReadonly: false,
+        templates: templatePath,
         extraTemplates: [],
       }
       await generateApi(generateParam);
