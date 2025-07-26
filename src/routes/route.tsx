@@ -2,28 +2,28 @@ import {createBrowserRouter} from "react-router";
 import {lazy} from 'react';
 import {LinkPath} from "@src/global/link_path.ts";
 
+// ===== default =====
 const Dashboard = lazy(
   () => import ( "@src/components/dashboard/Dashboard.tsx"),
 );
 
+// ===== auth =====
 const Login = lazy(
   () => import ( "@src/components/auth/Login.tsx"),
 );
-
 const Register = lazy(
   () => import ( "@src/components/auth/Register.tsx"),
 );
-
 const ResetPassword = lazy(
   () => import ( "@src/components/auth/ResetPasswd.tsx"),
 );
-
-const Status404 = lazy(
-  () => import ( "@src/components/status/Status404.tsx"),
-);
-
 const LoginByEmailCode = lazy(
   () => import ( "@src/components/auth/LoginByEmailCode.tsx"),
+);
+
+// ===== status =====
+const Status404 = lazy(
+  () => import ( "@src/components/status/Status404.tsx"),
 );
 
 export const router = createBrowserRouter([

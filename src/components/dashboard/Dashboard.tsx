@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {lazy} from 'react';
 
 // layout
-import PageTopBorder from '@src/components/layouts/PageTopBorder.tsx';
-import PageHeader from '@src/components/layouts/PageHeader.tsx';
-import PageContent from '@src/components/layouts/PageContent.tsx';
-import PageFooter from '@src/components/layouts/PageFooter.tsx';
+const PageTopBorder = lazy(
+  () => import ( '@src/components/layouts/PageTopBorder.tsx'),
+);
+const PageHeader = lazy(
+  () => import ( '@src/components/layouts/PageHeader.tsx'),
+);
+const PageContent = lazy(
+  () => import ( '@src/components/layouts/PageContent.tsx'),
+);
+const PageFooter = lazy(
+  () => import ( '@src/components/layouts/PageFooter.tsx'),
+);
 
 const Dashboard: React.FC = () => {
   return (
