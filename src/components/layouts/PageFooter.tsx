@@ -1,9 +1,11 @@
+import React from 'react';
+
 import myLogo from '@src/assets/react.svg'
 import '@src/assets/layouts/css/layout.css';
 import '@src/assets/layouts/css/page_footer.css';
 import Container from 'react-bootstrap/Container';
 
-function PageFooter() {
+const PageFooter: React.FC = () => {
   return (
     <>
       <Container fluid className="my-page-footer-container">

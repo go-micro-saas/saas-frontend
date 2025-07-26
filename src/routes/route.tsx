@@ -1,29 +1,46 @@
 import {createBrowserRouter} from "react-router";
+import {lazy} from 'react';
 import {LinkPath} from "@src/global/link_path.ts";
 
-import Dashboard from "@src/components/dashboard/Dashboard.tsx";
-import Login from "@src/components/auth/Login.tsx";
-import Register from "@src/components/auth/Register.tsx";
-import ResetPassword from "@src/components/auth/ResetPasswd.tsx";
-import Status404 from "@src/components/status/Status404.tsx";
-import LoginByEmailCode from "@src/components/auth/LoginByEmailCode.tsx";
+const Dashboard = lazy(
+  () => import ( "@src/components/dashboard/Dashboard.tsx"),
+);
 
-const router = createBrowserRouter([
+const Login = lazy(
+  () => import ( "@src/components/auth/Login.tsx"),
+);
+
+const Register = lazy(
+  () => import ( "@src/components/auth/Register.tsx"),
+);
+
+const ResetPassword = lazy(
+  () => import ( "@src/components/auth/ResetPasswd.tsx"),
+);
+
+const Status404 = lazy(
+  () => import ( "@src/components/status/Status404.tsx"),
+);
+
+const LoginByEmailCode = lazy(
+  () => import ( "@src/components/auth/LoginByEmailCode.tsx"),
+);
+
+export const router = createBrowserRouter([
   // default
   {path: LinkPath.Root, Component: Dashboard},
-  {path: LinkPath.Dashboard, Component: Dashboard},
-  {path: LinkPath.Home, Component: Dashboard},
+  {path: LinkPath.Dashboard, element: <Dashboard/>},
+  {path: LinkPath.Home, element: <Dashboard/>},
 
   // auth
-  {path: LinkPath.AuthLogin, Component: Login},
-  {path: LinkPath.AuthLoginByEmailCode, Component: LoginByEmailCode},
-  {path: LinkPath.AuthSignup, Component: Register},
-  {path: LinkPath.AuthResetPassword, Component: ResetPassword},
-  {path: LinkPath.AuthForgotPassword, Component: ResetPassword},
+  {path: LinkPath.AuthLogin, element: <Login/>},
+  {path: LinkPath.AuthLoginByEmailCode, element: <LoginByEmailCode/>},
+  {path: LinkPath.AuthSignup, element: <Register/>},
+  {path: LinkPath.AuthResetPassword, element: <ResetPassword/>},
+  {path: LinkPath.AuthForgotPassword, element: <ResetPassword/>},
+
 
   // 404
-  {path: LinkPath.NotFound, Component: Status404},
-  {path: "*", Component: Status404},
+  {path: LinkPath.NotFound, element: <Status404/>},
+  {path: "*", element: <Status404/>},
 ]);
-
-export default router;

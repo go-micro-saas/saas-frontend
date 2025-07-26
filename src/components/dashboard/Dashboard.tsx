@@ -1,10 +1,12 @@
+import React from 'react';
+
 // layout
 import PageTopBorder from '@src/components/layouts/PageTopBorder.tsx';
 import PageHeader from '@src/components/layouts/PageHeader.tsx';
 import PageContent from '@src/components/layouts/PageContent.tsx';
 import PageFooter from '@src/components/layouts/PageFooter.tsx';
 
-function Dashboard() {
+const Dashboard: React.FC = () => {
   return (
     <>
       <PageTopBorder/>

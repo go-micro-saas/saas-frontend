@@ -1,10 +1,10 @@
+import React, {useEffect, useState} from "react";
+
 import "@src/assets/login/css/login.css"
-import {useEffect, useState} from "react";
 import {LinkPath} from "@src/global/link_path.ts";
-import {CheckEmail, CheckPassword, CheckVerifyCode} from "@src/global/validate_rules.ts";
 import {MyProjectStore} from "@src/global/store_instance.ts";
 
-function RegisterForm() {
+const RegisterForm: React.FC = () => {
   // show password
   const [showPassword, setShowPassword] = useState(false);
   const doShowPassword = () => {
@@ -66,7 +66,7 @@ function RegisterForm() {
             <input id="inputLoginAccount" type="email"
                    className="form-control"
                    placeholder="电子邮箱"
-                   required={true} onInput={CheckEmail}/>
+                   required={true}/>
           </div>
         </div>
         <div className="row mb-3">
@@ -77,7 +77,7 @@ function RegisterForm() {
             <input id="inputLoginCode" type="text"
                    className="form-control"
                    placeholder="验证码"
-                   required={true} onInput={CheckVerifyCode}/>
+                   required={true}/>
             <button className="btn btn-outline-success" type="button"
                     disabled={!canGetVerifyCode}
                     onClick={doGetVerifyCode}>
@@ -93,7 +93,7 @@ function RegisterForm() {
             <input id="inputLoginPassword" type={passwordType}
                    className="form-control "
                    placeholder="登陆密码"
-                   required={true} onInput={CheckPassword}/>
+                   required={true}/>
             <span className="input-group-text" onClick={doShowPassword}>
               <i className={showPasswordIcon}></i>
             </span>
@@ -107,7 +107,7 @@ function RegisterForm() {
             <input id="inputLoginPassword2" type={passwordType}
                    className="form-control "
                    placeholder="再次输入密码"
-                   required={true} onInput={CheckPassword}/>
+                   required={true}/>
             <span className="input-group-text" onClick={doShowPassword}>
               <i className={showPasswordIcon}></i>
             </span>

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import "@src/assets/layouts/css/page_top_border.css"
 import "@src/assets/login/css/login.css"
 
@@ -7,7 +9,7 @@ import LoginByEmailCodeForm from "./LoginByEmailCodeForm.tsx"
 import PageFooter from "@src/components/layouts/PageFooter.tsx";
 import Container from 'react-bootstrap/Container';
 
-function LoginByEmailCode() {
+const LoginByEmailCode: React.FC = () => {
   return (
     <>
       {/*<div className="page_top_border"></div>*/}

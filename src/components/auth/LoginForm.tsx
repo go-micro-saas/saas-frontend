@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 
 import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row';
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 
-function LoginForm() {
+const LoginForm: React.FC = () => {
   // show password
   const [showPassword, setShowPassword] = useState(false);
   const doShowPassword = () => {

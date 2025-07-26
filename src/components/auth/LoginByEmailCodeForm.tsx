@@ -1,13 +1,12 @@
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
 import {LinkPath} from "@src/global/link_path.ts";
-import {CheckEmail, CheckVerifyCode} from "@src/global/validate_rules.ts";
 import {MyProjectStore} from "@src/global/store_instance.ts";
 
-function LoginByEmailCodeForm() {
+const LoginByEmailCodeForm: React.FC = () => {
   // getVerifyCode
   const {verifyCodeTime, setLoginVerifyCodeNextTime} = MyProjectStore();
   const [canGetVerifyCode, setCanGetVerifyCode] = useState(true);
@@ -61,7 +60,7 @@ function LoginByEmailCodeForm() {
             <input id="inputLoginAccount" type="email"
                    className="form-control"
                    placeholder="电子邮箱"
-                   required={true} onInput={CheckEmail}/>
+                   required={true}/>
           </div>
         </div>
         <div className="row mb-3">
@@ -72,7 +71,7 @@ function LoginByEmailCodeForm() {
             <input id="inputLoginCode" type="text"
                    className="form-control"
                    placeholder="验证码"
-                   required={true} onInput={CheckVerifyCode}/>
+                   required={true}/>
             <button className="btn btn-outline-success" type="button"
                     disabled={!canGetVerifyCode}
                     onClick={doGetVerifyCode}>

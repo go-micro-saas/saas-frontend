@@ -1,14 +1,16 @@
+import React from 'react';
+
 import '@src/assets/layouts/css/page_content.css';
 import firstCarousel from "@src/assets/carousel/image/first.png";
 import secondCarousel from "@src/assets/carousel/image/second.png";
 import thirdCarousel from "@src/assets/carousel/image/third.png";
-import Container from'react-bootstrap/Container';
+import Container from 'react-bootstrap/Container';
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 
-function PageWorkspace() {
+const PageWorkspace: React.FC = () => {
   return (
     <>
       <Container fluid className="my-page-workspace-container">
@@ -16,7 +18,7 @@ function PageWorkspace() {
           {/*col 1*/}
           <Col>
             <Card>
-              <Card.Img variant="top" src={firstCarousel} />
+              <Card.Img variant="top" src={firstCarousel}/>
               <Card.Body>
                 <Card.Title>Card Title</Card.Title>
                 <Card.Text>

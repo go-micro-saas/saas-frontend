@@ -1,3 +1,5 @@
+import React from 'react';
+
 import '@src/assets/layouts/css/page_content.css';
 import firstCarousel from "@src/assets/carousel/image/first-1440x360.png";
 import secondCarousel from "@src/assets/carousel/image/second-1440x360.png";
@@ -5,7 +7,7 @@ import thirdCarousel from "@src/assets/carousel/image/third-1440x360.png";
 import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/Container';
 
-function PageCarousel() {
+const PageCarousel: React.FC = () => {
   return (
     <Container fluid>
       <Carousel data-bs-theme="dark">

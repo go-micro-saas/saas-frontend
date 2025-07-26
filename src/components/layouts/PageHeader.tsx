@@ -1,3 +1,5 @@
+import React from 'react';
+
 import myLogo from '@src/assets/react.svg'
 import myAvatar from '@src/assets/layouts/image/ok.png'
 import '@src/assets/layouts/css/layout.css';
@@ -7,7 +9,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 
-function PageHeader() {
+const PageHeader: React.FC = () => {
   return (
     <>
       <div className="container-fluid my-header-navbar-container">
