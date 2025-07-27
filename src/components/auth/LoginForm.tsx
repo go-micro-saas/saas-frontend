@@ -8,7 +8,6 @@ import Row from 'react-bootstrap/Row';
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
-
 import * as formik from 'formik';
 import {
   DefaultLoginParam,
@@ -16,6 +15,7 @@ import {
   type LoginParam,
 } from "@src/components/auth/validate_rule/form_values.tsx";
 import {CheckEmail, CheckPhone} from "@src/global/validate_rules.ts";
+import {ApiToastExample} from "@src/components/toast/api_toast.tsx";
 
 const LoginForm: React.FC = () => {
   // show password
@@ -46,6 +46,7 @@ const LoginForm: React.FC = () => {
 
   return (
     <>
+      <ApiToastExample></ApiToastExample>
       <Formik initialValues={loginParam}
               validationSchema={loginParamRule}
               onSubmit={submitLoginForm}>

@@ -65,6 +65,9 @@ pnpm install axios
 pnpm install formik
 # yup
 pnpm install yup
+# luxon
+pnpm install luxon
+pnpm install --save-dev @types/luxon
 # swagger-typescript-api
 pnpm install --save-dev swagger-typescript-api
 ```
