@@ -15,6 +15,7 @@ import {
   DefaultLoginParamRule,
   type LoginParam,
 } from "@src/components/auth/validate_rule/form_values.tsx";
+import {CheckEmail, CheckPhone} from "@src/global/validate_rules.ts";
 
 const LoginForm: React.FC = () => {
   // show password
@@ -29,8 +30,18 @@ const LoginForm: React.FC = () => {
   const {Formik} = formik;
   const loginParam = DefaultLoginParam()
   const loginParamRule = DefaultLoginParamRule();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const submitLoginForm = (values: LoginParam) => {
+    setIsSubmitting(true);
     console.log(values);
+    if (CheckEmail(values.account)) {
+      console.log("email");
+    } else if (CheckPhone(values.account)) {
+      console.log("phone");
+    } else {
+      console.log("other");
+    }
+    setIsSubmitting(false)
   }
 
   return (
@@ -39,7 +50,7 @@ const LoginForm: React.FC = () => {
               validationSchema={loginParamRule}
               onSubmit={submitLoginForm}>
         {({handleSubmit, handleChange, values, errors}) => (
-          <Form id="login-form" onSubmit={handleSubmit}>
+          <Form id="login-form" noValidate onSubmit={handleSubmit}>
             <Row className="mb-3">
               <Form.Label htmlFor="inputLoginAccount" className="col-sm-3 col-form-label">
                 Account:<span className="text-danger align-middle">*</span>
@@ -101,13 +112,13 @@ const LoginForm: React.FC = () => {
               </Col>
             </Row>
             <Col className="col-12">
-          <span className="pull-left">
-            <a type="button" className="btn btn-info"
-               href={LinkPath.AuthResetPassword}>忘记密码 ?</a>
-          </span>
+              <span className="pull-left">
+                <a type="button" className="btn btn-info"
+                   href={LinkPath.AuthResetPassword}>忘记密码 ?</a>
+              </span>
               <span className="pull-right">
-                <button type="submit" className="btn btn-primary">登陆</button>
-            </span>
+                <button type="submit" className="btn btn-primary" disabled={isSubmitting}>登陆</button>
+              </span>
             </Col>
           </Form>
         )}
