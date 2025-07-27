@@ -59,10 +59,14 @@ pnpm install --save react-bootstrap bootstrap @popperjs/core
 pnpm install react-router
 # zustand
 pnpm install zustand
-# swagger-typescript-api
-pnpm install --save-dev swagger-typescript-api
 # axios
 pnpm install axios
+# formik
+pnpm install formik
+# yup
+pnpm install yup
+# swagger-typescript-api
+pnpm install --save-dev swagger-typescript-api
 ```
 
 ## swagger-typescript-api 生成
