@@ -18,7 +18,7 @@ import type {
   ResponseType,
 } from "axios";
 //import axios from "axios";
-import MyHTTPClient from "@src/global/axios.tsx";
+import MyHTTPClient from "@src/global/axios.ts";
 
 export type QueryParamsType = Record<string | number, any>;
 
