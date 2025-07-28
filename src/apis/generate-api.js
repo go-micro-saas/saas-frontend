@@ -68,6 +68,7 @@ async function generateAllApis() {
         input: entryFile,
         output: outputPath,
         axios: true,
+        generateClient: true,
         httpClientType: 'axios',
         modular: true,
         templates: templatePath,

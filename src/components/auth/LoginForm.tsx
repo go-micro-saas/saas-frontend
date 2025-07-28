@@ -15,7 +15,8 @@ import {
   type LoginParam,
 } from "@src/components/auth/validate_rule/form_values.tsx";
 import {CheckEmail, CheckPhone} from "@src/global/validate_rules.ts";
-import {UseGlobalToast} from '@src/components/toast/global_toast.tsx';
+import {GetGlobalToast} from '@src/components/toast/global_toast.tsx';
+import {LoginByEmailAndPassword} from "@src/components/auth/http_request/login.ts";
 
 const LoginForm: React.FC = () => {
   // show password
@@ -27,18 +28,20 @@ const LoginForm: React.FC = () => {
   const passwordType = showPassword ? 'text' : 'password';
 
   // toast
-  const toast = UseGlobalToast();
+  const toast = GetGlobalToast();
 
   // form
   const {Formik} = formik;
   const loginParam = DefaultLoginParam()
   const loginParamRule = DefaultLoginParamRule();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const submitLoginForm = (values: LoginParam) => {
+  const submitLoginForm = async (values: LoginParam) => {
     setIsSubmitting(true);
     console.log(values);
     if (CheckEmail(values.account)) {
-      console.log("email");
+      const data = await LoginByEmailAndPassword(values);
+      console.log(data);
+      // MyHTTPClient.get("/api/v1/saas-backend/ping")
     } else if (CheckPhone(values.account)) {
       console.log("phone");
     } else {

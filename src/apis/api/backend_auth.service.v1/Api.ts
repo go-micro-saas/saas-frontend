@@ -10,13 +10,13 @@
  * ---------------------------------------------------------------
  */
 
-import {
+import type {
   Resourcev1LoginByEmailReq,
   Resourcev1LoginByPhoneReq,
   Resourcev1LoginResp,
   RpcStatus,
 } from "./data-contracts";
-import { ContentType, HttpClient, RequestParams } from "./http-client";
+import { ContentType, HttpClient, type RequestParams } from "./http-client";
 
 export class Api<
   SecurityDataType = unknown,

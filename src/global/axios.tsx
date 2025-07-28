@@ -1,26 +1,26 @@
 import axios, {AxiosError} from 'axios'
-import {MyProjectStore} from "./store_instance.ts"
-import {HasValidAccessToken, NeedRefreshAccessToken} from "./store_helper.ts";
+// import {MyProjectStore} from "./store_instance.ts"
+// import {HasValidAccessToken, NeedRefreshAccessToken} from "./store_helper.ts";
 
-const {authToken} = MyProjectStore();
 
 const MyHTTPClient = axios.create({
   baseURL: '',
-  timeout: 6000,
+  timeout: 60000,
   headers: {
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json; charset=utf-8',
   },
 });
 
 // request
 MyHTTPClient.interceptors.request.use(
   (config) => {
-    if (HasValidAccessToken()) {
-      config.headers.Authorization = "Bearer " + authToken.accessToken;
-    }
-    if (NeedRefreshAccessToken()) {
-      console.log("==> need refresh access token");
-    }
+    // const {authToken} = MyProjectStore();
+    // if (HasValidAccessToken()) {
+    //   config.headers.Authorization = "Bearer " + authToken.accessToken;
+    // }
+    // if (NeedRefreshAccessToken()) {
+    //   console.log("==> need refresh access token");
+    // }
     return config;
   },
   (error: AxiosError) => Promise.reject(error)

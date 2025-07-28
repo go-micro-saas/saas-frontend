@@ -10,8 +10,8 @@
  * ---------------------------------------------------------------
  */
 
-import { Apibackendresourcev1PingResp, RpcStatus } from "./data-contracts";
-import { HttpClient, RequestParams } from "./http-client";
+import type { Apibackendresourcev1PingResp, RpcStatus } from "./data-contracts";
+import { HttpClient, type RequestParams } from "./http-client";
 
 export class Api<
   SecurityDataType = unknown,

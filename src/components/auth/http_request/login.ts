@@ -4,7 +4,7 @@ import {
   type Resourcev1LoginByEmailReq,
   type Resourcev1LoginResp
 } from "@src/apis/api/backend_auth.service.v1/data-contracts"
-import {Api} from "@src/apis/api/backend_auth.service.v1/Api"
+import {Api} from "@src/apis/api/backend_auth.service.v1/Api.ts"
 
 
 export const LoginByEmailAndPassword = async (param: LoginParam): Promise<Resourcev1LoginResp> => {
@@ -14,5 +14,6 @@ export const LoginByEmailAndPassword = async (param: LoginParam): Promise<Resour
     code: "",
   }
   const resp = await (new Api()).srvSaasBackendAuthV1LoginByEmail(req)
+  console.log("==> resp: ", resp)
   return resp.data;
 }

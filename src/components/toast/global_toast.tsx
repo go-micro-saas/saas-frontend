@@ -128,7 +128,7 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({children}) => 
 };
 
 // 自定义 Hook 用于调用 Toast
-export const UseGlobalToast = (): ToastService => {
+export const GetGlobalToast = (): ToastService => {
   const context = useContext(ToastContext);
   if (!context) {
     throw new Error('useToast must be used within a ToastProvider');
