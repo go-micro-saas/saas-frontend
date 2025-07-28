@@ -15,7 +15,7 @@ import {
   type LoginParam,
 } from "@src/components/auth/validate_rule/form_values.tsx";
 import {CheckEmail, CheckPhone} from "@src/global/validate_rules.ts";
-import {ApiToastExample} from "@src/components/toast/api_toast.tsx";
+import {UseGlobalToast} from '@src/components/toast/global_toast.tsx';
 
 const LoginForm: React.FC = () => {
   // show password
@@ -25,6 +25,9 @@ const LoginForm: React.FC = () => {
   };
   const showPasswordIcon = showPassword ? 'icon-off' : 'icon-eye-open';
   const passwordType = showPassword ? 'text' : 'password';
+
+  // toast
+  const toast = UseGlobalToast();
 
   // form
   const {Formik} = formik;
@@ -39,14 +42,15 @@ const LoginForm: React.FC = () => {
     } else if (CheckPhone(values.account)) {
       console.log("phone");
     } else {
-      console.log("other");
+      toast.error({
+        message: '账号格式错误',
+      })
     }
     setIsSubmitting(false)
   }
 
   return (
     <>
-      <ApiToastExample></ApiToastExample>
       <Formik initialValues={loginParam}
               validationSchema={loginParamRule}
               onSubmit={submitLoginForm}>

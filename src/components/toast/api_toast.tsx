@@ -13,8 +13,6 @@ export interface ApiToastProps {
   timestamp?: Date;
 }
 
-// export const ApiAlert = {}
-
 export const ApiToast: React.FC<ApiToastProps> = ({isShow, onClose, message, variant, timestamp}) => {
   return (
     <>

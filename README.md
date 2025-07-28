@@ -68,6 +68,8 @@ pnpm install yup
 # luxon
 pnpm install luxon
 pnpm install --save-dev @types/luxon
+# uuid
+pnpm install uuid
 # swagger-typescript-api
 pnpm install --save-dev swagger-typescript-api
 ```

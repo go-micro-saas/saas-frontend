@@ -7,10 +7,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '@src/assets/layouts/css/body.css'
 import '@src/assets/icons/css/icon.css'
 import '@src/assets/layouts/css/layout.css'
+import {ToastProvider} from "@src/components/toast/global_toast.tsx";
 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router}/>
+    <ToastProvider>
+      <RouterProvider router={router}/>
+    </ToastProvider>
   </StrictMode>,
 )
