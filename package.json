@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "@types/crypto-js": "^4.2.2",
     "axios": "^1.11.0",
     "bootstrap": "^5.3.7",
+    "crypto-js": "^4.2.0",
     "formik": "^2.4.6",
     "luxon": "^3.7.1",
     "react": "^19.1.0",

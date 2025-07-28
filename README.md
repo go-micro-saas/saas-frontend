@@ -70,6 +70,9 @@ pnpm install luxon
 pnpm install --save-dev @types/luxon
 # uuid
 pnpm install uuid
+# crypto-js
+pnpm install crypto-js
+pnpm install --save @types/crypto-js
 # swagger-typescript-api
 pnpm install --save-dev swagger-typescript-api
 ```
