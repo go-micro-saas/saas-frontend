@@ -3,7 +3,7 @@ import React from 'react';
 import "@src/assets/layouts/css/page_top_border.css"
 import "@src/assets/login/css/login.css"
 
-import {LinkPath} from "@src/global/link_path.ts";
+import {LinkPath} from "@src/global/link/link_path.ts";
 import AuthLogo from "./AuthLogo.tsx"
 import LoginByEmailCodeForm from "./LoginByEmailCodeForm.tsx"
 import PageFooter from "@src/components/layouts/PageFooter.tsx";

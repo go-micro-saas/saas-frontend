@@ -1,4 +1,4 @@
-import {LinkPath} from "@src/global/link_path.ts";
+import {LinkPath} from "@src/global/link/link_path.ts";
 import {useNavigate} from "react-router";
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';

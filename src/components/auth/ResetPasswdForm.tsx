@@ -3,8 +3,8 @@ import React, {useEffect, useState} from 'react';
 import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
-import {LinkPath} from "@src/global/link_path.ts";
-import {MyProjectStore} from "@src/global/store_instance.ts";
+import {LinkPath} from "@src/global/link/link_path.ts";
+import {MyProjectStore} from "@src/global/store/store_instance.ts";
 
 const ResetPasswordForm: React.FC = () => {
   // show password

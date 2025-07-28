@@ -1,7 +1,7 @@
 import React, {createContext, useContext, useState, useEffect, type ReactNode} from 'react';
 import {Toast, ToastContainer} from 'react-bootstrap';
 import {v4 as uuidV4} from 'uuid';
-import RelativeTime from "@src/components/time/RelativeTime.tsx";
+import RelativeTime from "@src/global/time/RelativeTime.tsx";
 
 // 定义 Toast 类型和选项
 export type ToastType = 'success' | 'error' | 'info' | 'warning';

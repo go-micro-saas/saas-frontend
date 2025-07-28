@@ -1,5 +1,5 @@
 import {MyProjectStore} from "./store_instance.ts";
-import type {AuthToken, UserInfo} from "@src/global/store_const.ts";
+import type {AuthToken, UserInfo} from "@src/global/store/store_const.ts";
 
 export const Signup = (authToken: AuthToken, userInfo: UserInfo) => {
   const {setAuthToken, setUserInfo} = MyProjectStore();

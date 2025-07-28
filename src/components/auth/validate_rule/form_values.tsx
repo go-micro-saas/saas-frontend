@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import {CheckLoginAccount, CheckPassword} from "@src/global/validate_rules.ts";
+import {CheckLoginAccount, CheckPassword} from "@src/global/rule/validate_rules.ts";
 
 export interface LoginParam {
   account: string;

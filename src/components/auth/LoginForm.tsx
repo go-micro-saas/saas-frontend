@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
-import {LinkPath} from "@src/global/link_path.ts";
+import {LinkPath} from "@src/global/link/link_path.ts";
 import Row from 'react-bootstrap/Row';
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -14,8 +14,8 @@ import {
   DefaultLoginParamRule,
   type LoginParam,
 } from "@src/components/auth/validate_rule/form_values.tsx";
-import {CheckEmail, CheckPhone} from "@src/global/validate_rules.ts";
-import {GetGlobalToast} from '@src/components/toast/global_toast.tsx';
+import {CheckEmail, CheckPhone} from "@src/global/rule/validate_rules.ts";
+import {GetGlobalToast} from '@src/global/toast/global_toast.tsx';
 import {LoginByEmailAndPassword} from "@src/components/auth/http_request/login.ts";
 
 const LoginForm: React.FC = () => {
@@ -37,10 +37,9 @@ const LoginForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const submitLoginForm = async (values: LoginParam) => {
     setIsSubmitting(true);
-    console.log(values);
     if (CheckEmail(values.account)) {
       const data = await LoginByEmailAndPassword(values);
-      console.log(data);
+      console.log("==> data:", data);
       // MyHTTPClient.get("/api/v1/saas-backend/ping")
     } else if (CheckPhone(values.account)) {
       console.log("phone");

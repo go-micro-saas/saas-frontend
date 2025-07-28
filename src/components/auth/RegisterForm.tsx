@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 
 import "@src/assets/login/css/login.css"
-import {LinkPath} from "@src/global/link_path.ts";
-import {MyProjectStore} from "@src/global/store_instance.ts";
+import {LinkPath} from "@src/global/link/link_path.ts";
+import {MyProjectStore} from "@src/global/store/store_instance.ts";
 
 const RegisterForm: React.FC = () => {
   // show password

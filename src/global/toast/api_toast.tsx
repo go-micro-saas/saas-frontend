@@ -2,7 +2,7 @@ import Toast from "react-bootstrap/Toast";
 import ToastContainer from "react-bootstrap/ToastContainer";
 import React, {useState} from "react";
 import {type Variant} from "react-bootstrap/types";
-import RelativeTime from "@src/components/time/RelativeTime.tsx";
+import RelativeTime from "@src/global/time/RelativeTime.tsx";
 
 // 定义props类型
 export interface ApiToastProps {

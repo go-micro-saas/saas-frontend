@@ -1,13 +1,13 @@
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 import {RouterProvider} from "react-router";
-import {router} from "@src/routes/route.tsx";
+import {router} from "@src/global/routes/route.tsx";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@src/assets/layouts/css/body.css'
 import '@src/assets/icons/css/icon.css'
 import '@src/assets/layouts/css/layout.css'
-import {ToastProvider} from "@src/components/toast/global_toast.tsx";
+import {ToastProvider} from "@src/global/toast/global_toast.tsx";
 
 
 createRoot(document.getElementById('root')!).render(

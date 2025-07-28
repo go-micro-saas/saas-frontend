@@ -1,6 +1,6 @@
 import {createBrowserRouter} from "react-router";
 import {lazy} from 'react';
-import {LinkPath} from "@src/global/link_path.ts";
+import {LinkPath} from "@src/global/link/link_path.ts";
 
 // ===== default =====
 const Dashboard = lazy(

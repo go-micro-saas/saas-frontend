@@ -6,7 +6,7 @@ import type {
   EmployeeInfo, CompanyInfo,
   VerifyCodeTime,
   MyStore,
-} from "@src/global/store_const.ts";
+} from "@src/global/store/store_const.ts";
 
 const ProjectStore = create<MyStore>()(
   persist(
