@@ -1,4 +1,4 @@
-import {type LoginParam} from "@src/components/auth/validate_rule/form_values.tsx";
+import {type LoginParam} from "@src/components/auth/validate_rule/form_values.ts";
 import MD5 from 'crypto-js/md5';
 import {
   type Resourcev1LoginByEmailReq,
