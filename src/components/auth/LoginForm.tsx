@@ -17,6 +17,7 @@ import {
 import {CheckEmail, CheckPhone} from "@src/global/rule/validate_rules.ts";
 import {GetGlobalToast} from '@src/global/toast/global_toast.tsx';
 import {LoginByEmailAndPassword} from "@src/components/auth/http_request/login.ts";
+import {Loading} from "@src/global/loading/loading.tsx";
 
 const LoginForm: React.FC = () => {
   // show password
@@ -38,7 +39,9 @@ const LoginForm: React.FC = () => {
   const submitLoginForm = async (values: LoginParam) => {
     setIsSubmitting(true);
     if (CheckEmail(values.account)) {
-      const data = await LoginByEmailAndPassword(values);
+      const data = await LoginByEmailAndPassword(values).finally(() => {
+        setIsSubmitting(false)
+      });
       console.log("==> data:", data);
       // MyHTTPClient.get("/api/v1/saas-backend/ping")
     } else if (CheckPhone(values.account)) {
@@ -124,7 +127,10 @@ const LoginForm: React.FC = () => {
                    href={LinkPath.AuthResetPassword}>忘记密码 ?</a>
               </span>
               <span className="pull-right">
-                <button type="submit" className="btn btn-primary" disabled={isSubmitting}>登陆</button>
+                <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+                  登陆
+                  {isSubmitting && <Loading/>}
+                </button>
               </span>
             </Col>
           </Form>

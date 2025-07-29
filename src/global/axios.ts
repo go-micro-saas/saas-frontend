@@ -1,6 +1,7 @@
 import axios, {AxiosError} from 'axios'
-// import {MyProjectStore} from "./store_instance.ts"
-// import {HasValidAccessToken, NeedRefreshAccessToken} from "./store_helper.ts";
+import {ProjectStore} from "@src/global/store/store_instance.ts";
+import {HasValidAccessToken, NeedRefreshAccessToken} from "@src/global/store/store_helper.ts";
+import {toast} from '@src/global/toast/toast_service.ts';
 
 
 const MyHTTPClient = axios.create({
@@ -14,13 +15,14 @@ const MyHTTPClient = axios.create({
 // request
 MyHTTPClient.interceptors.request.use(
   (config) => {
-    // const {authToken} = MyProjectStore();
-    // if (HasValidAccessToken()) {
-    //   config.headers.Authorization = "Bearer " + authToken.accessToken;
-    // }
-    // if (NeedRefreshAccessToken()) {
-    //   console.log("==> need refresh access token");
-    // }
+    const authToken = ProjectStore.getState().authToken;
+    if (HasValidAccessToken(authToken)) {
+      config.headers.Authorization = "Bearer " + authToken.accessToken;
+    }
+    // const refreshAccessToken = NeedRefreshAccessToken()
+    if (NeedRefreshAccessToken(authToken)) {
+      console.log("==> need refresh access token");
+    }
     return config;
   },
   (error: AxiosError) => Promise.reject(error)
@@ -30,7 +32,9 @@ MyHTTPClient.interceptors.request.use(
 MyHTTPClient.interceptors.response.use(
   (response) => response,
   (error: AxiosError) => {
-    console.error('Client1 API error:', error);
+    toast.error({message: error.message});
+    console.log('Client1 API error:', error);
+    console.log('==> message', error.message);
     return Promise.reject(error);
   }
 );

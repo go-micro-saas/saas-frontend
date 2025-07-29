@@ -1,4 +1,4 @@
-import {MyProjectStore} from "./store_instance.ts";
+import {MyProjectStore} from "@src/global/store/store_instance.ts";
 import type {AuthToken, UserInfo} from "@src/global/store/store_const.ts";
 
 export const Signup = (authToken: AuthToken, userInfo: UserInfo) => {
@@ -14,8 +14,7 @@ export const Logout = () => {
   setCompanyInfo({});
 }
 
-export const HasValidAccessToken = () => {
-  const {authToken} = MyProjectStore();
+export const HasValidAccessToken = (authToken: AuthToken) => {
   const nowUnix = Math.ceil((new Date()).getTime() / 1000);
 
 
@@ -23,8 +22,7 @@ export const HasValidAccessToken = () => {
     authToken.accessToken && authToken.accessToken.length > 0;
 }
 
-export const NeedRefreshAccessToken = () => {
-  const {authToken} = MyProjectStore();
+export const NeedRefreshAccessToken = (authToken: AuthToken) => {
   const nowUnix = Math.ceil((new Date()).getTime() / 1000);
   // invalid refresh token
   if (!authToken.refreshTokenExpires || authToken.refreshTokenExpires <= nowUnix ||
