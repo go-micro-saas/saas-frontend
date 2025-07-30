@@ -19,6 +19,9 @@ import {GetGlobalToast} from '@src/global/toast/toast_provider.tsx';
 import {LoginByEmailAndPassword} from "@src/components/auth/http_request/login.ts";
 import {Loading} from "@src/global/loading/loading.tsx";
 import type {AxiosError} from "axios";
+import type {
+  Resourcev1LoginResp
+} from "@src/apis/api/backend_auth.service.v1/data-contracts.ts";
 
 const LoginForm: React.FC = () => {
   // show password
@@ -40,13 +43,13 @@ const LoginForm: React.FC = () => {
   const submitLoginForm = async (values: LoginParam) => {
     setIsSubmitting(true);
     if (CheckEmail(values.account)) {
-      const data = await LoginByEmailAndPassword(values).catch((err: AxiosError) => {
+      await LoginByEmailAndPassword(values).then(() => {
+        console.log("==> 登录成功:", 11);
+      }).catch((err: AxiosError | Resourcev1LoginResp) => {
         console.error("登录失败:", err);
       }).finally(() => {
         setIsSubmitting(false)
       });
-      console.log("==> data:", data);
-      // MyHTTPClient.get("/api/v1/saas-backend/ping")
     } else if (CheckPhone(values.account)) {
       console.log("phone");
     } else {
