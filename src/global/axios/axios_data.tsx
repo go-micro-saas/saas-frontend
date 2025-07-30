@@ -1,6 +1,7 @@
 import {AxiosError} from "axios";
 import type {ReactNode} from "react";
-import {Table} from "react-bootstrap";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
+import Form from "react-bootstrap/Form";
 
 
 export interface Status {
@@ -27,7 +28,7 @@ export interface ReplyData {
 
 export const GetReasonCodeFromReplyData = (replyData: ReplyData) => {
   const reasonCode = (replyData.metadata as Record<string, string>)?.reason || "0";
-  return Number.parseInt(reasonCode) || 0;
+  return Number.parseInt(reasonCode) || replyData.code as number || 0;
 }
 
 export const GetReplyDataFromResponseData = (data: unknown): ReplyData => {
@@ -42,23 +43,53 @@ export const GetReplyDataFromResponseData = (data: unknown): ReplyData => {
 }
 
 export const GetTipMessage = (status: Status, replyData: ReplyData): string | ReactNode => {
+  const reasonCode = GetReasonCodeFromReplyData(replyData);
+
   return (
-    <Table responsive>
-      <tbody>
+
+    <>
+      {/* requestID */}
       {
         status.requestId && (
-          <tr>
-            <td>RequestId:</td>
-            <td>{status.requestId}</td>
-          </tr>
+          <FloatingLabel
+            controlId="statusRequestID"
+            label="RequestID"
+          >
+            <Form.Control type="text" disabled={true}
+                          value={status.requestId}/>
+          </FloatingLabel>
         )
       }
-      <tr>
-        <td>Status:</td>
-        <td>{status.status || "UNKNOWN"} - {status.statusText || "NOT_CONTENT"}</td>
-      </tr>
-      </tbody>
-    </Table>
+      {/* status */}
+      <FloatingLabel
+        controlId="statusCodeText"
+        label="Status"
+      >
+        <Form.Control type="text" disabled={true}
+                      value={(status.status || "UNKNOWN") + " - " + (status.statusText || "NOT_CONTENT")}/>
+      </FloatingLabel>
+      {/* response */}
+      {
+        reasonCode > 0 && (
+          <>
+            <FloatingLabel
+              controlId="replyDataCode"
+              label="Code"
+            >
+              <Form.Control type="text" disabled={true}
+                            value={reasonCode}/>
+            </FloatingLabel>
+            <FloatingLabel
+              controlId="replyDataMessage"
+              label="Message"
+            >
+              <Form.Control as="textarea" disabled={true}
+                            value={replyData.message as string}/>
+            </FloatingLabel>
+          </>
+        )
+      }
+    </>
   );
 }
 

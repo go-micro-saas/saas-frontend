@@ -38,8 +38,7 @@ MyHTTPClient.interceptors.response.use(
     //console.log('==> axios api error', error);
     const status = GetStatusFromAxiosError(error);
     const replyData = GetReplyDataFromResponseData(error.response?.data);
-    const tipMessage = GetTipMessage(status, replyData);
-    toast.error({message: tipMessage});
+    toast.error({message: GetTipMessage(status, replyData)});
     return Promise.reject(error.response?.data || error);
   }
 );

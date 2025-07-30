@@ -23,6 +23,15 @@ export const GetToastTitle = (type: ToastType) => {
   };
   return map[type] || 'INFO';
 };
+export const GetToastTextStyle = (type: ToastType) => {
+  const map = {
+    success: 'text-success',
+    error: 'text-danger',
+    info: 'text-info',
+    warning: 'text-warning'
+  };
+  return map[type] || 'text-primary';
+};
 
 // toast 配置
 export const defaultToastDuration = 1600
@@ -107,11 +116,14 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({children}) => 
             key={toast.id}
             show={true}
             onClose={() => removeToast(toast.id)}
-            bg={GetToastBg(toast.type)}
+            // bg={GetToastBg(toast.type)}
             delay={toast.duration} autohide
           >
             <Toast.Header closeButton>
-              <strong className="me-auto">{toast.title || GetToastTitle(toast.type)}</strong>
+              <strong
+                className={"me-auto " + GetToastTextStyle(toast.type)}>
+                {toast.title || GetToastTitle(toast.type)}
+              </strong>
               <small>
                 {toast.timestamp && <RelativeTime date={toast.timestamp}/>}
               </small>
