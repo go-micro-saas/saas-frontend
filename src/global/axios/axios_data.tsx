@@ -44,16 +44,6 @@ export const GetReplyDataFromResponseData = (data: unknown): ReplyData => {
 
 export const GetTipMessage = (status: Status, replyData: ReplyData): string | ReactNode => {
   const reasonCode = GetReasonCodeFromReplyData(replyData);
-  // 复制逻辑
-  const handleCopy = (e: unknown) => {
-    try {
-      console.log("==> xxxx:", e)
-      // 方法1：使用 Clipboard API（现代浏览器推荐）
-      // await navigator.clipboard.writeText(value);
-    } catch (err) {
-      void err;
-    }
-  };
 
   return (
 
@@ -66,7 +56,6 @@ export const GetTipMessage = (status: Status, replyData: ReplyData): string | Re
             label="RequestID"
           >
             <Form.Control type="text" disabled={true}
-                          onClick={(e) => handleCopy(e)}
                           value={status.requestId}/>
           </FloatingLabel>
         )
@@ -77,7 +66,6 @@ export const GetTipMessage = (status: Status, replyData: ReplyData): string | Re
         label="Status"
       >
         <Form.Control type="text" disabled={true}
-                      onClick={(e) => handleCopy(e)}
                       value={(status.status || "UNKNOWN") + " - " + (status.statusText || "NOT_CONTENT")}/>
       </FloatingLabel>
       {/* response */}
@@ -89,7 +77,6 @@ export const GetTipMessage = (status: Status, replyData: ReplyData): string | Re
               label="Code"
             >
               <Form.Control type="text" disabled={true}
-                            onClick={(e) => handleCopy(e)}
                             value={reasonCode}/>
             </FloatingLabel>
             <FloatingLabel
@@ -97,7 +84,6 @@ export const GetTipMessage = (status: Status, replyData: ReplyData): string | Re
               label="Message"
             >
               <Form.Control as="textarea" disabled={true}
-                            onClick={(e) => handleCopy(e)}
                             value={replyData.message as string}/>
             </FloatingLabel>
           </>
