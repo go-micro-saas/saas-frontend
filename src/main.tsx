@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '@src/assets/layouts/css/body.css'
 import '@src/assets/icons/css/icon.css'
 import '@src/assets/layouts/css/layout.css'
-import {ToastProvider} from "@src/global/toast/global_toast.tsx";
+import {ToastProvider} from "@src/global/toast/toast_provider.tsx";
 import {ToastEventBridge} from "@src/global/toast/toast_event_bridge.tsx";
 
 

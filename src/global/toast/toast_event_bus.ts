@@ -1,29 +1,28 @@
-import {type ToastType, type ToastOptions} from "@src/global/toast/global_toast.tsx";
+import {type ToastType, type ToastOptions} from "@src/global/toast/toast_provider.tsx";
 
-
-export interface ToastEvent {
-  type: ToastType;
-  trigger: (options: ToastOptions) => void
-}
+export type ToastEvenFn = (options: ToastOptions) => void
 
 // 1. 事件总线：用于非React环境与React组件通信
 class EventBus {
-  private listeners: Record<string, Function[]> = {};
+  private listeners: Record<string, ToastEvenFn> = {};
 
   // 注册事件监听
-  on(event: ToastType, callback: Function) {
-    console.log("on: ", event);
-    if (!this.listeners[event]) {
-      this.listeners[event] = [];
-    }
-    this.listeners[event].push(callback);
+  on(event: ToastType, callback: ToastEvenFn) {
+    this.listeners[event] = callback;
   }
 
   // 触发事件
-  emit(event: ToastType, ...args: ToastOptions[]) {
+  emit(event: ToastType, options: ToastOptions) {
     if (this.listeners[event]) {
-      this.listeners[event].forEach(callback => callback(...args));
+      this.listeners[event](options);
     }
+  }
+
+  // 移除事件监听
+  remove(event: ToastType) {
+    this.listeners[event] = (options: ToastOptions) => {
+      void options;
+    };
   }
 }
 

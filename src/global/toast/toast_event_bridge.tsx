@@ -1,6 +1,6 @@
 import React from 'react';
 import {toastEventBus} from '@src/global/toast/toast_event_bus.ts';
-import {GetGlobalToast, type ToastOptions} from '@src/global/toast/global_toast.tsx'; // 原有的hook
+import {GetGlobalToast, type ToastOptions} from '@src/global/toast/toast_provider.tsx'; // 原有的hook
 
 // 用于非钩子环境的"桥梁"组件
 export const ToastEventBridge: React.FC = () => {
@@ -24,10 +24,10 @@ export const ToastEventBridge: React.FC = () => {
     // 清理函数
     return () => {
       // 实际项目中可根据需要实现off方法
-      // toastEventBus.off('success');
-      // toastEventBus.off('error');
-      // toastEventBus.off('info');
-      // toastEventBus.off('warning');
+      // toastEventBus.remove('success');
+      // toastEventBus.remove('error');
+      // toastEventBus.remove('info');
+      // toastEventBus.remove('warning');
     };
   }, [toast]);
 

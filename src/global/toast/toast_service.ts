@@ -1,5 +1,5 @@
 import {toastEventBus} from '@src/global/toast/toast_event_bus.ts';
-import {type ToastOptions} from "@src/global/toast/global_toast.tsx";
+import {type ToastOptions} from "@src/global/toast/toast_provider.tsx";
 
 // 非钩子环境调用的toast工具函数
 export const toast = {

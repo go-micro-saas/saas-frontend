@@ -15,7 +15,7 @@ import {
   type LoginParam,
 } from "@src/components/auth/validate_rule/form_values.ts";
 import {CheckEmail, CheckPhone} from "@src/global/rule/validate_rules.ts";
-import {GetGlobalToast} from '@src/global/toast/global_toast.tsx';
+import {GetGlobalToast} from '@src/global/toast/toast_provider.tsx';
 import {LoginByEmailAndPassword} from "@src/components/auth/http_request/login.ts";
 import {Loading} from "@src/global/loading/loading.tsx";
 import type {AxiosError} from "axios";

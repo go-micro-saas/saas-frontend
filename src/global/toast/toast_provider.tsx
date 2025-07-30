@@ -28,15 +28,15 @@ export const GetToastTitle = (type: ToastType) => {
 export const defaultToastDuration = 1600
 
 export interface ToastOptions {
-  message: string;
+  message: string | ReactNode;
   title?: string;
+  timestamp?: Date;
   duration?: number; // 显示时长(ms)，默认 defaultToastDuration
 }
 
 export interface ToastItem extends ToastOptions {
   id: string;
   type: ToastType;
-  timestamp?: Date;
 }
 
 // 定义 Toast 服务接口
@@ -60,7 +60,6 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({children}) => 
     const toast: ToastItem = {
       id: uuidV4(),
       type,
-      timestamp: new Date(),
       duration: defaultToastDuration,
       ...options,
     };

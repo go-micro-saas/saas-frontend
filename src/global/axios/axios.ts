@@ -2,6 +2,7 @@ import axios, {AxiosError} from 'axios'
 import {ProjectStore} from "@src/global/store/store_instance.ts";
 import {HasValidAccessToken, NeedRefreshAccessToken} from "@src/global/store/store_helper.ts";
 import {toast} from '@src/global/toast/toast_service.ts';
+import {GetReplyDataFromResponseData, GetStatusFromAxiosError, GetTipMessage} from "@src/global/axios/axios_data.tsx";
 
 
 const MyHTTPClient = axios.create({
@@ -30,11 +31,16 @@ MyHTTPClient.interceptors.request.use(
 
 // reply
 MyHTTPClient.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    return response.data;
+  },
   (error: AxiosError) => {
-    toast.error({message: error.message});
-    console.log('==> error', error);
-    return Promise.reject(error);
+    //console.log('==> axios api error', error);
+    const status = GetStatusFromAxiosError(error);
+    const replyData = GetReplyDataFromResponseData(error.response?.data);
+    const tipMessage = GetTipMessage(status, replyData);
+    toast.error({message: tipMessage});
+    return Promise.reject(error.response?.data || error);
   }
 );
 
