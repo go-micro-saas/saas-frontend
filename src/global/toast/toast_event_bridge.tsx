@@ -24,6 +24,10 @@ export const ToastEventBridge: React.FC = () => {
     // 清理函数
     return () => {
       // 实际项目中可根据需要实现off方法
+      // toastEventBus.off('success');
+      // toastEventBus.off('error');
+      // toastEventBus.off('info');
+      // toastEventBus.off('warning');
     };
   }, [toast]);
 

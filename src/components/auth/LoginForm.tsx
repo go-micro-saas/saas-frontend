@@ -18,6 +18,7 @@ import {CheckEmail, CheckPhone} from "@src/global/rule/validate_rules.ts";
 import {GetGlobalToast} from '@src/global/toast/global_toast.tsx';
 import {LoginByEmailAndPassword} from "@src/components/auth/http_request/login.ts";
 import {Loading} from "@src/global/loading/loading.tsx";
+import type {AxiosError} from "axios";
 
 const LoginForm: React.FC = () => {
   // show password
@@ -39,7 +40,9 @@ const LoginForm: React.FC = () => {
   const submitLoginForm = async (values: LoginParam) => {
     setIsSubmitting(true);
     if (CheckEmail(values.account)) {
-      const data = await LoginByEmailAndPassword(values).finally(() => {
+      const data = await LoginByEmailAndPassword(values).catch((err: AxiosError) => {
+        console.error("登录失败:", err);
+      }).finally(() => {
         setIsSubmitting(false)
       });
       console.log("==> data:", data);

@@ -33,8 +33,7 @@ MyHTTPClient.interceptors.response.use(
   (response) => response,
   (error: AxiosError) => {
     toast.error({message: error.message});
-    console.log('Client1 API error:', error);
-    console.log('==> message', error.message);
+    console.log('==> error', error);
     return Promise.reject(error);
   }
 );

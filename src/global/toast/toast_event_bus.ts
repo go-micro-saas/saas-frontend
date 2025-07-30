@@ -12,6 +12,7 @@ class EventBus {
 
   // 注册事件监听
   on(event: ToastType, callback: Function) {
+    console.log("on: ", event);
     if (!this.listeners[event]) {
       this.listeners[event] = [];
     }
