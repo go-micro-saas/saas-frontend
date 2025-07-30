@@ -2,6 +2,7 @@ import {AxiosError} from "axios";
 import type {ReactNode} from "react";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
 
 
 export interface Status {
@@ -49,46 +50,36 @@ export const GetTipMessage = (status: Status, replyData: ReplyData): string | Re
 
     <>
       {/* requestID */}
-      {
-        status.requestId && (
-          <FloatingLabel
-            controlId="statusRequestID"
-            label="RequestID"
-          >
-            <Form.Control type="text" disabled={true}
-                          value={status.requestId}/>
-          </FloatingLabel>
-        )
-      }
-      {/* status */}
-      <FloatingLabel
-        controlId="statusCodeText"
-        label="Status"
-      >
-        <Form.Control type="text" disabled={true}
-                      value={(status.status || "UNKNOWN") + " - " + (status.statusText || "NOT_CONTENT")}/>
-      </FloatingLabel>
-      {/* response */}
-      {
-        reasonCode > 0 && (
-          <>
+        {
+          status.requestId && (
             <FloatingLabel
-              controlId="replyDataCode"
-              label="Code"
+              controlId="statusRequestID"
+              label="RequestID"
             >
               <Form.Control type="text" disabled={true}
-                            value={reasonCode}/>
+                            value={status.requestId}/>
             </FloatingLabel>
-            <FloatingLabel
-              controlId="replyDataMessage"
-              label="Message"
-            >
-              <Form.Control as="textarea" disabled={true}
-                            value={replyData.message as string}/>
-            </FloatingLabel>
-          </>
-        )
-      }
+          )
+        }
+        {/* status */}
+        <FloatingLabel
+          controlId="statusCodeText"
+          label="Status"
+        >
+          <Form.Control type="text" disabled={true}
+                        value={(status.status || "UNKNOWN") + " - " + (status.statusText || "NOT_CONTENT")}/>
+        </FloatingLabel>
+        {/* response */}
+        {
+          reasonCode > 0 && (
+            <Alert variant={"primary"}>
+              <p>Code: {reasonCode}</p>
+              <p>
+                Message: {(replyData.message as string)}
+              </p>
+            </Alert>
+          )
+        }
     </>
   );
 }

@@ -22,7 +22,7 @@ MyHTTPClient.interceptors.request.use(
     }
     // const refreshAccessToken = NeedRefreshAccessToken()
     if (NeedRefreshAccessToken(authToken)) {
-      console.log("==> need refresh access token");
+      void 1;
     }
     return config;
   },
@@ -39,7 +39,7 @@ MyHTTPClient.interceptors.response.use(
     const status = GetStatusFromAxiosError(error);
     const replyData = GetReplyDataFromResponseData(error.response?.data);
     toast.error({message: GetTipMessage(status, replyData)});
-    return Promise.reject(error.response?.data || error);
+    return Promise.reject(error);
   }
 );
 
