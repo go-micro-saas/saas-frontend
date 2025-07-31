@@ -50,36 +50,32 @@ export const GetTipMessage = (status: Status, replyData: ReplyData): string | Re
 
     <>
       {/* requestID */}
-        {
-          status.requestId && (
-            <FloatingLabel
-              controlId="statusRequestID"
-              label="RequestID"
-            >
-              <Form.Control type="text" disabled={true}
-                            value={status.requestId}/>
-            </FloatingLabel>
-          )
-        }
-        {/* status */}
-        <FloatingLabel
-          controlId="statusCodeText"
-          label="Status"
-        >
-          <Form.Control type="text" disabled={true}
-                        value={(status.status || "UNKNOWN") + " - " + (status.statusText || "NOT_CONTENT")}/>
-        </FloatingLabel>
-        {/* response */}
-        {
-          reasonCode > 0 && (
-            <Alert variant={"primary"}>
-              <p>Code: {reasonCode}</p>
-              <p>
-                Message: {(replyData.message as string)}
-              </p>
-            </Alert>
-          )
-        }
+      {
+        status.requestId && (
+           <FloatingLabel
+             controlId="statusRequestID"
+             label="RequestID"
+           >
+             <Form.Control type="text" disabled={true}
+                           value={status.requestId}/>
+           </FloatingLabel>
+        )
+      }
+      {
+        reasonCode > 0 ? (
+          <Alert variant={"primary"}>
+            <p>Code: {reasonCode}</p>
+            <p>
+              Message: {(replyData.message as string)}
+            </p>
+          </Alert>
+        ) : (
+          <Alert>
+            <p>Code: {status.status}</p>
+            <p>Message: {status.statusText}</p>
+          </Alert>
+        )
+      }
     </>
   );
 }

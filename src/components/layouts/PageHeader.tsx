@@ -53,7 +53,7 @@ const PageHeader: React.FC = () => {
                 </Nav.Link>
               </Nav>
               {/*user*/}
-              <Dropdown className="d-flex col-sm-2 dropdown">
+              <Dropdown drop="down-centered" className="d-flex col-sm-2 dropdown justify-content-end">
                 {/* 游客 or 用户 */}
                 {/*<div className="my-header-navbar-text-avatar">游客</div>*/}
                 <img src={myAvatar} className="my-header-navbar-img-avatar" alt="Avatar"/>
@@ -68,7 +68,7 @@ const PageHeader: React.FC = () => {
                                  className="my-header-navbar-sign-in link-body-emphasis text-truncate">
                   <span className="text-truncate">Guide</span>
                 </Dropdown.Toggle>
-                <Dropdown.Menu className="dropdown-menu my-header-navbar-dropdown">
+                <Dropdown.Menu className="dropdown-menu my-header-navbar-dropdown justify-content-end">
                   <Dropdown.Item className="text-truncate disabled"
                                  href="#">
                     <i className="icon-user"></i>
