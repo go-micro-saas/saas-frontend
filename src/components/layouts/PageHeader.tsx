@@ -8,8 +8,11 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
+import {ProjectStore} from "@src/global/store/store_instance.ts";
+import {LinkPath} from "@src/global/link/link_path.ts";
 
 const PageHeader: React.FC = () => {
+  const userInfo = ProjectStore((state) => state.userInfo);
   return (
     <>
       <div className="container-fluid my-header-navbar-container">
@@ -54,20 +57,35 @@ const PageHeader: React.FC = () => {
               </Nav>
               {/*user*/}
               <Dropdown drop="down-centered" className="d-flex col-sm-2 dropdown justify-content-end">
-                {/* 游客 or 用户 */}
-                {/*<div className="my-header-navbar-text-avatar">游客</div>*/}
-                <img src={myAvatar} className="my-header-navbar-img-avatar" alt="Avatar"/>
-                <span className="my-margin-x3"></span>
-                {/* 游客 - 注册 */}
-                {/*<a href="#"*/}
-                {/*   className="btn btn-info my-header-navbar-sign-up link-body-emphasis text-decoration-none">*/}
-                {/*  <span className="">注册</span>*/}
-                {/*</a>*/}
-                {/* 登录 - 用户*/}
-                <Dropdown.Toggle variant={"info"}
-                                 className="my-header-navbar-sign-in link-body-emphasis text-truncate">
-                  <span className="text-truncate">Guide</span>
-                </Dropdown.Toggle>
+                {
+                  Number(userInfo.uid || "0") < 1 ?
+                    <>
+                      {/* 游客 - 注册 */}
+                      <div className="my-header-navbar-text-avatar text-truncate">游客</div>
+                      <span className="my-margin-x3"></span>
+                      <a href={LinkPath.AuthLogin}
+                         className="btn btn-info my-header-navbar-sign-up link-body-emphasis text-decoration-none">
+                        <span className="">登录</span>
+                      </a>
+                    </>
+                    :
+                    <>
+                      {/* 登录 - 用户*/}
+                      {
+                        userInfo.avatar ?
+                          <img src={myAvatar} className="my-header-navbar-img-avatar" alt="Avatar"/> :
+                          <div className="my-header-navbar-text-avatar  text-truncate">{userInfo.name || userInfo.uid}</div>
+                      }
+
+                      <span className="my-margin-x3"></span>
+                      <Dropdown.Toggle variant={"info"}
+                                       className="my-header-navbar-sign-in link-body-emphasis text-truncate">
+                        <span className="text-truncate">{userInfo.name || userInfo.uid}</span>
+                      </Dropdown.Toggle>
+                    </>
+                }
+
+
                 <Dropdown.Menu className="dropdown-menu my-header-navbar-dropdown justify-content-end">
                   <Dropdown.Item className="text-truncate disabled"
                                  href="#">
