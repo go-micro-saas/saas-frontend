@@ -14,11 +14,8 @@ import {
   DefaultLoginParamRule,
   type LoginParam,
 } from "@src/components/auth/validate_rule/form_values.ts";
-import {CheckEmail, CheckPhone} from "@src/global/rule/validate_rules.ts";
-import {GetGlobalToast} from '@src/global/toast/toast_provider.tsx';
-import {LoginByEmailAndPassword} from "@src/components/auth/http_request/login.ts";
+import {Login} from "@src/components/auth/http_request/login.ts";
 import {Loading} from "@src/global/loading/loading.tsx";
-import type {AxiosError} from "axios";
 
 const LoginForm: React.FC = () => {
   // show password
@@ -30,7 +27,6 @@ const LoginForm: React.FC = () => {
   const passwordType = showPassword ? 'text' : 'password';
 
   // toast
-  const toast = GetGlobalToast();
 
   // form
   const {Formik} = formik;
@@ -39,24 +35,13 @@ const LoginForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const submitLoginForm = async (values: LoginParam) => {
     setIsSubmitting(true);
-    if (CheckEmail(values.account)) {
-      await LoginByEmailAndPassword(values).then(() => {
-        console.log("==> 登录成功:", 11);
-      }).catch((err: AxiosError) => {
-        void err;
-        // toast.error({
-        //   message: '登录失败',
-        // })
-      }).finally(() => {
-        setIsSubmitting(false)
-      });
-    } else if (CheckPhone(values.account)) {
-      console.log("phone");
-    } else {
-      toast.error({
-        message: '账号格式错误',
-      })
-    }
+    await Login(values).then(() => {
+      console.log("==> 登录成功:", 11);
+    }).catch((err) => {
+      console.log("==> err:", err);
+    }).finally(() => {
+      setIsSubmitting(false)
+    });
     setIsSubmitting(false)
   }
 

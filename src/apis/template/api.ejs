@@ -26,3 +26,5 @@ export class <%= apiClassName %><SecurityDataType = unknown><% if (!config.singl
         <%~ includeFile('./procedure-call.ejs', { ...it, route }) %>
     <% } %>
 }
+
+export const ApiClient = new <%= apiClassName %>();

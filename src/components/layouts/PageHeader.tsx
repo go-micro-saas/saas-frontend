@@ -31,7 +31,7 @@ const PageHeader: React.FC = () => {
             <Navbar.Collapse id="myNavbarSupportedContent">
               <Nav className="me-auto justify-content-lg-center container-fluid">
                 <Nav.Link className="my-header-navbar-a"
-                          href="/home">
+                          href={LinkPath.Root}>
                   <i className="icon-home"></i>
                   <span className="my-margin-r3"></span>
                   Home
@@ -102,13 +102,20 @@ const PageHeader: React.FC = () => {
                     个人组织
                   </Dropdown.Item>
 
-
                   <hr className="dropdown-divider"/>
                   <Dropdown.Item className="text-truncate disabled"
                                  href="#">
                     <i className="icon-cog icon-spin"></i>
                     <span className="my-margin-r3"></span>
                     管理组织
+                  </Dropdown.Item>
+
+                  <hr className="dropdown-divider"/>
+                  <Dropdown.Item className="text-truncate disabled"
+                                 href="#">
+                    <i className="icon-zoom-out"></i>
+                    <span className="my-margin-r3"></span>
+                    退出登录
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>

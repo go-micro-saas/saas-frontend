@@ -62,3 +62,5 @@ export class Api<
       ...params,
     });
 }
+
+export const ApiClient = new Api();

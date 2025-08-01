@@ -14,6 +14,14 @@ export const Logout = () => {
   setCompanyInfo({});
 }
 
+export const Login = (
+  authToken: AuthToken, userInfo: UserInfo,
+) => {
+  const {setAuthToken, setUserInfo} = MyProjectStore();
+  setAuthToken(authToken);
+  setUserInfo(userInfo);
+}
+
 export const HasValidAccessToken = (authToken: AuthToken) => {
   const nowUnix = Math.ceil((new Date()).getTime() / 1000);
 

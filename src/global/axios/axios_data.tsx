@@ -17,32 +17,30 @@ export const GetStatusFromAxiosError = (error: AxiosError) => {
   }
 }
 
-export interface ReplyData {
+export interface ReplyHeader {
   code?: number | unknown;
   reason?: string | unknown;
   message?: string | unknown;
   metadata?: Record<string, string> | unknown;
-  data?: unknown;
 }
 
-export const GetReasonCodeFromReplyData = (replyData: ReplyData) => {
+export const GetReasonCodeFromReplyData = (replyData: ReplyHeader) => {
   const reasonCode = (replyData.metadata as Record<string, string>)?.reason || "0";
   return Number.parseInt(reasonCode) || replyData.code as number || 0;
 }
 
-export const GetReplyDataFromResponseData = (data: unknown): ReplyData => {
+export const GetReplyHeaderFromResponseData = (data: unknown): ReplyHeader => {
   const dataObj = typeof data === 'object' && data !== null ? data : {};
   return {
     code: (dataObj as Record<string, unknown>)?.code,
     reason: (dataObj as Record<string, unknown>)?.reason,
     message: (dataObj as Record<string, unknown>)?.message,
     metadata: (dataObj as Record<string, unknown>)?.metadata,
-    data: (dataObj as Record<string, unknown>)?.data,
   }
 }
 
-export const GetTipMessage = (status: Status, replyData: ReplyData): string | ReactNode => {
-  const reasonCode = GetReasonCodeFromReplyData(replyData);
+export const GetTipMessage = (status: Status, replyHeader: ReplyHeader): string | ReactNode => {
+  const reasonCode = GetReasonCodeFromReplyData(replyHeader);
 
   return (
     <Alert variant={"primary"}>
@@ -51,7 +49,7 @@ export const GetTipMessage = (status: Status, replyData: ReplyData): string | Re
           <p>
             {status.requestId && <>id：{status.requestId}<br/></>}
             code：{reasonCode}<br/>
-            message：{(replyData.message as string)}
+            message：{(replyHeader.message as string)}
           </p>
         ) : (
           <p>

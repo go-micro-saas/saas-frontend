@@ -4,6 +4,7 @@ import myLogo from '@src/assets/react.svg'
 import '@src/assets/layouts/css/layout.css';
 import '@src/assets/layouts/css/page_footer.css';
 import Container from 'react-bootstrap/Container';
+import {LinkPath} from "@src/global/link/link_path.ts";
 
 const PageFooter: React.FC = () => {
   return (
@@ -27,7 +28,7 @@ const PageFooter: React.FC = () => {
           </a>
           <ul className="nav col-md-4 justify-content-end">
             <li className="nav-item">
-              <a href="#" className="nav-link px-2 text-body-secondary disabled">
+              <a href={LinkPath.Root} className="nav-link px-2 text-body-secondary">
                 <i className="icon-home"></i>
                 <span className="my-margin-r3"></span>
                 Home
