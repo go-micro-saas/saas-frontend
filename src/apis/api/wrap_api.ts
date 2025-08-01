@@ -5,7 +5,7 @@ export type ApiResult<T> = {
   err: AxiosError | unknown;
 };
 
-export const WrapRequestAPI = async <T>(promise: Promise<T>): Promise<ApiResult<T>> => {
+export const WrapApiResponse = async <T>(promise: Promise<T>): Promise<ApiResult<T>> => {
   try {
     const resp = await promise;
     return {resp, err: null};

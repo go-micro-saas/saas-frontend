@@ -1,4 +1,4 @@
-import {AxiosError} from "axios";
+import {type AxiosResponse} from "axios";
 import type {ReactNode} from "react";
 import Alert from "react-bootstrap/Alert";
 
@@ -9,11 +9,11 @@ export interface Status {
   statusText?: string;
 }
 
-export const GetStatusFromAxiosError = (error: AxiosError) => {
+export const GetStatusFromAxiosResponse = (response: AxiosResponse | undefined) => {
   return {
-    requestId: error.response?.headers?.['x-kit-request-id'],
-    status: error.response?.status,
-    statusText: error.response?.statusText,
+    requestId: response?.headers?.['x-kit-request-id'],
+    status: response?.status,
+    statusText: response?.statusText,
   }
 }
 
@@ -24,7 +24,7 @@ export interface ReplyHeader {
   metadata?: Record<string, string> | unknown;
 }
 
-export const GetReasonCodeFromReplyData = (replyData: ReplyHeader) => {
+export const GetReasonCodeFromReplyHeader = (replyData: ReplyHeader) => {
   const reasonCode = (replyData.metadata as Record<string, string>)?.reason || "0";
   return Number.parseInt(reasonCode) || replyData.code as number || 0;
 }
@@ -40,7 +40,7 @@ export const GetReplyHeaderFromResponseData = (data: unknown): ReplyHeader => {
 }
 
 export const GetTipMessage = (status: Status, replyHeader: ReplyHeader): string | ReactNode => {
-  const reasonCode = GetReasonCodeFromReplyData(replyHeader);
+  const reasonCode = GetReasonCodeFromReplyHeader(replyHeader);
 
   return (
     <Alert variant={"primary"}>

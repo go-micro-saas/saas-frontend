@@ -14,7 +14,7 @@ import {
   DefaultLoginParamRule,
   type LoginParam,
 } from "@src/components/auth/validate_rule/form_values.ts";
-import {Login} from "@src/components/auth/http_request/login.ts";
+import {LoginAndRedirect} from "@src/components/auth/http_request/login.ts";
 import {Loading} from "@src/global/loading/loading.tsx";
 
 const LoginForm: React.FC = () => {
@@ -35,13 +35,7 @@ const LoginForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const submitLoginForm = async (values: LoginParam) => {
     setIsSubmitting(true);
-    await Login(values).then(() => {
-      console.log("==> 登录成功:", 11);
-    }).catch((err) => {
-      console.log("==> err:", err);
-    }).finally(() => {
-      setIsSubmitting(false)
-    });
+    await LoginAndRedirect(values);
     setIsSubmitting(false)
   }
 

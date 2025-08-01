@@ -1,8 +1,10 @@
-import {MyProjectStore} from "@src/global/store/store_instance.ts";
+import {MyProjectStore, ProjectStore} from "@src/global/store/store_instance.ts";
 import type {AuthToken, UserInfo} from "@src/global/store/store_const.ts";
 
-export const Signup = (authToken: AuthToken, userInfo: UserInfo) => {
-  const {setAuthToken, setUserInfo} = MyProjectStore();
+export const Login = (
+  authToken: AuthToken, userInfo: UserInfo,
+) => {
+  const {setAuthToken, setUserInfo} = ProjectStore.getState();
   setAuthToken(authToken);
   setUserInfo(userInfo);
 }
@@ -12,14 +14,6 @@ export const Logout = () => {
   setAuthToken({});
   setUserInfo({});
   setCompanyInfo({});
-}
-
-export const Login = (
-  authToken: AuthToken, userInfo: UserInfo,
-) => {
-  const {setAuthToken, setUserInfo} = MyProjectStore();
-  setAuthToken(authToken);
-  setUserInfo(userInfo);
 }
 
 export const HasValidAccessToken = (authToken: AuthToken) => {

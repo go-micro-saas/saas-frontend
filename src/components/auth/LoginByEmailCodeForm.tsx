@@ -39,7 +39,7 @@ const LoginByEmailCodeForm: React.FC = () => {
   }, [nextGetCodeTime, verifyCodeTime.loginVerifyCodeNextTime]);
   // 倒计时结束时的逻辑
   useEffect(() => {
-    console.log("remainingSeconds: ", remainingSeconds);
+    // console.log("remainingSeconds: ", remainingSeconds);
     if (remainingSeconds > 0) {
       setCanGetVerifyCode(false);
       return;
