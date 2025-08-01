@@ -1,7 +1,5 @@
 import {AxiosError} from "axios";
 import type {ReactNode} from "react";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
-import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
 
 
@@ -47,36 +45,23 @@ export const GetTipMessage = (status: Status, replyData: ReplyData): string | Re
   const reasonCode = GetReasonCodeFromReplyData(replyData);
 
   return (
-
-    <>
-      {/* requestID */}
-      {
-        status.requestId && (
-           <FloatingLabel
-             controlId="statusRequestID"
-             label="RequestID"
-           >
-             <Form.Control type="text" disabled={true}
-                           value={status.requestId}/>
-           </FloatingLabel>
-        )
-      }
+    <Alert variant={"primary"}>
       {
         reasonCode > 0 ? (
-          <Alert variant={"primary"}>
-            <p>Code: {reasonCode}</p>
-            <p>
-              Message: {(replyData.message as string)}
-            </p>
-          </Alert>
+          <p>
+            {status.requestId && <>id：{status.requestId}<br/></>}
+            code：{reasonCode}<br/>
+            message：{(replyData.message as string)}
+          </p>
         ) : (
-          <Alert>
-            <p>Code: {status.status}</p>
-            <p>Message: {status.statusText}</p>
-          </Alert>
+          <p>
+            {status.requestId && <>id：{status.requestId}<br/></>}
+            code：{status.status}<br/>
+            message：{status.statusText}
+          </p>
         )
       }
-    </>
+    </Alert>
   );
 }
 

@@ -34,7 +34,9 @@ export const GetToastTextStyle = (type: ToastType) => {
 };
 
 // toast 配置
-export const defaultToastDuration = 1600
+const DefaultToastDuration = () => {
+  return 2000;
+}
 
 export interface ToastOptions {
   message: string | ReactNode;
@@ -69,7 +71,7 @@ export const ToastProvider: React.FC<{ children: ReactNode }> = ({children}) => 
     const toast: ToastItem = {
       id: uuidV4(),
       type,
-      duration: defaultToastDuration,
+      duration: DefaultToastDuration(),
       ...options,
     };
     setToasts(prev => [...prev, toast]);
