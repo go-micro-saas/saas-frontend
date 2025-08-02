@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
-import {LinkPath} from "@src/global/link/link_path.ts";
+import {GetRedirectFrom, LinkPath} from "@src/global/link/link_path.ts";
 import Row from 'react-bootstrap/Row';
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -14,8 +14,9 @@ import {
   DefaultLoginParamRule,
   type LoginParam,
 } from "@src/components/auth/validate_rule/form_values.ts";
-import {LoginAndRedirect} from "@src/components/auth/http_request/login.ts";
+import {Login} from "@src/components/auth/http_request/login.ts";
 import {Loading} from "@src/global/loading/loading.tsx";
+import {useNavigate} from "react-router";
 
 const LoginForm: React.FC = () => {
   // show password
@@ -26,7 +27,7 @@ const LoginForm: React.FC = () => {
   const showPasswordIcon = showPassword ? 'icon-off' : 'icon-eye-open';
   const passwordType = showPassword ? 'text' : 'password';
 
-  // toast
+  const navigate = useNavigate();
 
   // form
   const {Formik} = formik;
@@ -35,8 +36,9 @@ const LoginForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const submitLoginForm = async (values: LoginParam) => {
     setIsSubmitting(true);
-    await LoginAndRedirect(values);
+    await Login(values);
     setIsSubmitting(false)
+    navigate(GetRedirectFrom(), { replace: true });
   }
 
   return (

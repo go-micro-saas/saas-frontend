@@ -9,16 +9,7 @@ import {CheckEmail, CheckPhone} from "@src/global/rule/validate_rules.ts";
 import {WrapApiResponse, type ApiResult} from "@src/apis/api/wrap_api.ts";
 import {Login as SetLoginStore} from '@src/global/store/store_helper.ts';
 import type {AuthToken, UserInfo} from "@src/global/store/store_const.ts";
-import {LinkPath} from "@src/global/link/link_path.ts";
 
-
-export const LoginAndRedirect = async (param: LoginParam) => {
-  const res = await Login(param);
-  if (res.err) {
-    return res;
-  }
-  window.location.href = LinkPath.Root;
-}
 
 export const Login = async (param: LoginParam) => {
   if (CheckEmail(param.account)) {

@@ -3,30 +3,30 @@ import {lazy} from 'react';
 import {LinkPath} from "@src/global/link/link_path.ts";
 
 // ===== default =====
-const Dashboard = lazy(
+export const Dashboard = lazy(
   () => import ( "@src/components/dashboard/Dashboard.tsx"),
 );
 
 // ===== auth =====
-const Login = lazy(
+export const Login = lazy(
   () => import ( "@src/components/auth/Login.tsx"),
 );
-const Register = lazy(
+export const Register = lazy(
   () => import ( "@src/components/auth/Register.tsx"),
 );
-const ResetPassword = lazy(
+export const ResetPassword = lazy(
   () => import ( "@src/components/auth/ResetPasswd.tsx"),
 );
-const LoginByEmailCode = lazy(
+export const LoginByEmailCode = lazy(
   () => import ( "@src/components/auth/LoginByEmailCode.tsx"),
 );
 
 // ===== status =====
-const Status404 = lazy(
+export const Status404 = lazy(
   () => import ( "@src/components/status/Status404.tsx"),
 );
 
-export const router = createBrowserRouter([
+export const Routes = createBrowserRouter([
   // default
   {path: LinkPath.Root, Component: Dashboard},
   {path: LinkPath.Dashboard, element: <Dashboard/>},
@@ -43,4 +43,4 @@ export const router = createBrowserRouter([
   // 404
   {path: LinkPath.NotFound, element: <Status404/>},
   {path: "*", element: <Status404/>},
-]);
+])

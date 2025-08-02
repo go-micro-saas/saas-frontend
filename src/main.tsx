@@ -1,7 +1,7 @@
 import {StrictMode} from 'react'
 import {createRoot} from 'react-dom/client'
 import {RouterProvider} from "react-router";
-import {router} from "@src/global/routes/route.tsx";
+import {Routes} from "@src/global/routes/route.tsx";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@src/assets/layouts/css/body.css'
@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ToastProvider>
       <ToastEventBridge/>
-      <RouterProvider router={router}/>
+      <RouterProvider router={Routes}/>
     </ToastProvider>
   </StrictMode>,
 )

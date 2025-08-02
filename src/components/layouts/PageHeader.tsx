@@ -1,5 +1,4 @@
 import React from 'react';
-
 import myLogo from '@src/assets/react.svg'
 import myAvatar from '@src/assets/layouts/image/ok.png'
 import '@src/assets/layouts/css/layout.css';
@@ -9,10 +8,12 @@ import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import {ProjectStore} from "@src/global/store/store_instance.ts";
-import {LinkPath} from "@src/global/link/link_path.ts";
+import {GetCurrentPathAndQuery, LinkPath} from "@src/global/link/link_path.ts";
 
 const PageHeader: React.FC = () => {
   const userInfo = ProjectStore((state) => state.userInfo);
+  const loginPath = LinkPath.AuthLogin + "?" + GetCurrentPathAndQuery()
+
   return (
     <>
       <div className="container-fluid my-header-navbar-container">
@@ -63,8 +64,8 @@ const PageHeader: React.FC = () => {
                       {/* 游客 - 注册 */}
                       <div className="my-header-navbar-text-avatar text-truncate">游客</div>
                       <span className="my-margin-x3"></span>
-                      <a href={LinkPath.AuthLogin}
-                         className="btn btn-info my-header-navbar-sign-up link-body-emphasis text-decoration-none">
+                      <a className="btn btn-info my-header-navbar-sign-up link-body-emphasis text-decoration-none"
+                         href={loginPath}>
                         <span className="">登录</span>
                       </a>
                     </>
@@ -74,7 +75,8 @@ const PageHeader: React.FC = () => {
                       {
                         userInfo.avatar ?
                           <img src={myAvatar} className="my-header-navbar-img-avatar" alt="Avatar"/> :
-                          <div className="my-header-navbar-text-avatar  text-truncate">{userInfo.name || userInfo.uid}</div>
+                          <div
+                            className="my-header-navbar-text-avatar  text-truncate">{userInfo.name || userInfo.uid}</div>
                       }
 
                       <span className="my-margin-x3"></span>

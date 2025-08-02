@@ -1,6 +1,6 @@
 import {create} from 'zustand'
 import {persist, createJSONStorage} from 'zustand/middleware'
-import {useShallow} from 'zustand/react/shallow'
+// import {useShallow} from 'zustand/react/shallow'
 import type {
   AuthToken, UserInfo,
   EmployeeInfo, CompanyInfo,
@@ -57,7 +57,5 @@ export const ProjectStore = create<MyStore>()(
 )
 
 export const MyProjectStore = () => {
-  return ProjectStore(
-    useShallow((state) => ({...state})),
-  )
+  return ProjectStore.getState()
 }
