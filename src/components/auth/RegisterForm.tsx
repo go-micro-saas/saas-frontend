@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 
 import "@src/assets/login/css/login.css"
-import {LinkPath} from "@src/global/link/link_path.ts";
+import {GetCurrentURLQueryRaw, LinkPath} from "@src/global/link/link_path.ts";
 import {MyProjectStore} from "@src/global/store/store_instance.ts";
 
 const RegisterForm: React.FC = () => {
@@ -54,6 +54,9 @@ const RegisterForm: React.FC = () => {
       setCanGetVerifyCode(true);
     }
   }, [remainingSeconds]);
+
+  // path
+  const loginPath = LinkPath.AuthLogin + GetCurrentURLQueryRaw();
 
   return (
     <>
@@ -116,7 +119,7 @@ const RegisterForm: React.FC = () => {
         <div className="col-12">
           <span className="pull-left">
             <a type="button" className="btn btn-info"
-               href={LinkPath.AuthLogin}>&laquo; 返回登陆</a>
+               href={loginPath}>&laquo; 返回登陆</a>
           </span>
           <span className="pull-right">
                 <button type="submit" className="btn btn-primary">注册</button>

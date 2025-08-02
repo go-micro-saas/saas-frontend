@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
-import {LinkPath} from "@src/global/link/link_path.ts";
+import {GetCurrentURLQueryRaw, LinkPath} from "@src/global/link/link_path.ts";
 import {MyProjectStore} from "@src/global/store/store_instance.ts";
 
 const ResetPasswordForm: React.FC = () => {
@@ -55,6 +55,9 @@ const ResetPasswordForm: React.FC = () => {
       setCanGetVerifyCode(true);
     }
   }, [remainingSeconds]);
+
+  // path
+  const loginPath = LinkPath.AuthLogin + GetCurrentURLQueryRaw();
 
   return (
     <>
@@ -117,7 +120,7 @@ const ResetPasswordForm: React.FC = () => {
         <div className="col-12">
           <span className="pull-left">
             <a type="button" className="btn btn-info"
-               href={LinkPath.AuthLogin}>&laquo; 返回登陆</a>
+               href={loginPath}>&laquo; 返回登陆</a>
           </span>
           <span className="pull-right">
             <button type="submit" className="btn btn-primary">重置密码</button>

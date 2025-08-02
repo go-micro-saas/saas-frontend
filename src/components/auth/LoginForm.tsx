@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import "@src/assets/login/css/login.css"
 import "@src/assets/layouts/css/layout.css"
 import "@src/assets/icons/css/icon.css"
-import {GetRedirectFrom, LinkPath} from "@src/global/link/link_path.ts";
+import {GetCurrentURLQueryRaw, GetRedirectFrom, LinkPath} from "@src/global/link/link_path.ts";
 import Row from 'react-bootstrap/Row';
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -38,8 +38,11 @@ const LoginForm: React.FC = () => {
     setIsSubmitting(true);
     await Login(values);
     setIsSubmitting(false)
-    navigate(GetRedirectFrom(), { replace: true });
+    navigate(GetRedirectFrom(), {replace: true});
   }
+
+  // path
+  const resetPasswdPath = LinkPath.AuthResetPassword + GetCurrentURLQueryRaw();
 
   return (
     <>
@@ -111,7 +114,7 @@ const LoginForm: React.FC = () => {
             <Col className="col-12">
               <span className="pull-left">
                 <a type="button" className="btn btn-info"
-                   href={LinkPath.AuthResetPassword}>忘记密码 ?</a>
+                   href={resetPasswdPath}>忘记密码 ?</a>
               </span>
               <span className="pull-right">
                 <button type="submit" className="btn btn-primary" disabled={isSubmitting}>

@@ -3,13 +3,17 @@ import React from 'react';
 import "@src/assets/layouts/css/page_top_border.css"
 import "@src/assets/login/css/login.css"
 
-import {LinkPath} from "@src/global/link/link_path.ts";
+import {GetCurrentURLQueryRaw, LinkPath} from "@src/global/link/link_path.ts";
 import AuthLogo from "./AuthLogo.tsx"
 import LoginByEmailCodeForm from "./LoginByEmailCodeForm.tsx"
 import PageFooter from "@src/components/layouts/PageFooter.tsx";
 import Container from 'react-bootstrap/Container';
 
 const LoginByEmailCode: React.FC = () => {
+  // path
+  const loginPath = LinkPath.AuthLogin + GetCurrentURLQueryRaw();
+  const loginBySignupPath = LinkPath.AuthSignup + GetCurrentURLQueryRaw();
+
   return (
     <>
       {/*<div className="page_top_border"></div>*/}
@@ -25,14 +29,14 @@ const LoginByEmailCode: React.FC = () => {
               {/*login*/}
               <span className="pull-left">
                 <a className="text-decoration-none"
-                   href={LinkPath.AuthLogin}>
+                   href={loginPath}>
                 &laquo;&nbsp;密码登录
               </a>
               </span>
               {/*register*/}
               <span className="pull-right">
                 <a className="text-decoration-none"
-                   href={LinkPath.AuthSignup}>
+                   href={loginBySignupPath}>
                   没有账号？注册&nbsp;&raquo;
                 </a>
               </span>
